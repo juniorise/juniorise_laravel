@@ -1,0 +1,12 @@
+.profile-container {
+    textarea {
+        padding: 10px 10px 0 14px;
+        min-height: 49px;
+        outline: none;
+        resize: none;
+        vertical-align: top;
+    }
+    @media (min-width: 1140px){
+        min-width: 542px;
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "theac/composer",
+    "description": "",
+    "authors": [
+        {
+            "name": "Thea Choem",
+            "email": "theacheng.g6@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dom-crawler": "^5.2",
+        "symfony/css-selector": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {"MyCrawler\\":"src/"}
+    }
+}

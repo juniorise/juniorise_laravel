@@ -1,0 +1,26 @@
+.categories-dropdown {
+    margin-top: 20px;
+    .header-categories {
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        .fa-sort-up,.fa-sort-down {
+            position: absolute;
+        }
+        .fa-sort-up {
+            right: 12px;
+            bottom: 12px;
+        }
+        .fa-sort-down {
+            right: 12px;
+            bottom: 19px;
+        }
+    }
+    .deactive {
+        display: none;
+    }
+    .active {
+        display: block;
+    }
+}
+

@@ -1,0 +1,16 @@
+.emoji-reaction {
+    width: 60.48px;
+    height: 28px;
+    background-color: #CED4DA;
+    border-radius: 100px;
+    @media(max-width: 1024px){
+        width: 50px;
+        font-size: 9px;
+    }
+    .emoji-icon{
+        @media(max-width:576px) {
+            width: 48px;
+        }
+    }
+}
+
