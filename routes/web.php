@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 //Thea
 Route::get('/', function () {
@@ -10,7 +11,10 @@ Route::get('/', function () {
 //Panha
 Route::prefix('/')->group(function () {
     Route::get('recentshare', function () {
-        return view('screens/frontend/recentshare');
+        return redirect('recentshare/computer-science');
+    });
+    Route::get('recentshare/{categoryid}', function ($categoryid) {
+        return View::make('screens/frontend/recentshare')->with('categoryid', $categoryid);
     });
     Route::get('answers', function () {
         return view('screens/frontend/answers');
@@ -35,3 +39,5 @@ Route::prefix('admin')->group(function () {
         return view('screens/admin/queryselect');
     });
 });
+
+Route::get('/on', 'YourController@callMeDirectlyFromUrl');
