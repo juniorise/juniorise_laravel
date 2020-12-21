@@ -25,17 +25,17 @@ Route::prefix('/')->group(function () {
 });
 
 //Lyhean
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
+Route::prefix('admin/')->group(function () {
+    Route::get('dashboard', function () {
         return view('screens/admin/dashboard');
     });
-    Route::get('/managepost', function () {
+    Route::get('managepost', function () {
         return view('screens/admin/managepost');
     });
-    Route::get('/usersaccount', function () {
+    Route::get('usersaccount', function () {
         return view('screens/admin/usersaccount');
     });
-    Route::get('/queryselect', function () {
+    Route::get('queryselect', function () {
         return view('screens/admin/queryselect');
     });
 });
