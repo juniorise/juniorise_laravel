@@ -1,0 +1,112 @@
+.highlight {
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+    padding: 8px 0;
+}
+
+.vertical-center {
+    min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 80vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+
+.section-2{
+    .left-side{
+        margin: 48px 0 0 24px;
+    }
+    .right-side{
+        .img-1{
+            margin-top: 0;
+            margin-left: calc(16em * 0);
+            z-index: 0;
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.15));
+        }
+        .img-2{
+            margin-top: -60px;
+            margin-left: calc(16em * 1);
+            z-index: 1;
+            filter: drop-shadow(0px 16px 8px rgba(0, 0, 0, 0.15));
+        }
+        .img-3{
+            margin-top: -60px;
+            margin-left: calc(16em * 0);
+            z-index: 2;
+            filter: drop-shadow(0px 24px 8px rgba(0, 0, 0, 0.15));
+        }
+        .img-4{
+            margin-top: -60px;
+            margin-left: calc(16em * 1);
+            z-index: 3;
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.15));
+        }
+    }
+}
+
+.section-3{
+    margin-top: -60px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    padding: 40px 0;
+    .useful{
+        margin: 10px;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        .circle-icon {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                color: white;
+                font-size: 50px;
+            }
+        }
+        h5{
+            margin-top: 24px;
+        }
+    }
+}
+
+.section-4{
+    padding: 20px 0;
+}
+
+@media only screen and (max-width: 600px) {
+    nav{
+        width: 100% !important;
+    }
+    .section-1, .section-2{
+        flex-direction: column;
+        .left-side{
+            width: 100% !important;
+        }
+        .right-side{
+            width: 100% !important; 
+        }
+    }
+    .section-2{
+        height: 150vh !important;
+        .left-side{
+            margin: 24px 0;
+        }
+        .right-side{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            img{
+                margin: 10px 0 0 !important;
+            }
+            .img-4{
+                display: none;
+            }
+        }
+    }
+}
