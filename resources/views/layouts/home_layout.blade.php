@@ -36,15 +36,23 @@
             @include('layouts.logo', ["isLight"=>true])
             <div class="d-flex justify-content-end">
                 <div class="sign-in-sign-up d-flex">
-                    @include('layouts.custombtn', ['name' => "Login", 'prop' => "text-dark btn align-self-center text-decoration-none"])
-                    @include('layouts.custombtn', ['name' => "Sign up", 'prop' => "text-primary btn border border-primary align-self-center rounded-0 ml-4"])
-                </div>
-            </div>
-        </nav>
-        <main class="py-4">
-            @yield('content')
+                        <a class="text-dark" href="#" id="loginBtn">Login</a>
+                    </div>
         </main>
     </div>
     @include('layouts.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $("#loginBtn").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#section-4").offset().top
+            }, 250);
+        });
+        window.onbeforeunload = function () {
+            $('html, body').animate({
+                scrollTop: 0,
+            }, 250);
+        }
+    </script>
 </body>
 </html>
