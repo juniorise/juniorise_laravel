@@ -2,26 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecentShare;
+use App\Http\Controllers\Question;
+use App\Http\Controllers\Answer;
+use App\Http\Controllers\Errors;
 
 //Thea
 Route::get('/', function () {
     return view('screens/home/home');
 });
 
+Route::get('/errors', [Errors::class,'index'])->name('errors');
 //Panha
 Route::prefix('/')->group(function () {
-    Route::get('recentshare', function () {
-        return redirect('recentshare/computer-science');
-    });
-    Route::get('recentshare/{categoryid}', function ($categoryid) {
-        return View::make('screens/frontend/recentshare')->with('categoryid', $categoryid);
-    });
-    Route::get('answers', function () {
-        return view('screens/frontend/answers');
-    });
-    Route::get('questions', function () {
-        return view('screens/frontend/questions');
-    });
+    Route::get('recentshare', [RecentShare::class,'index'])->name('recentshare');
+    Route::get('recentshare/{category}',[RecentShare::class,'show'])->middleware('category_type');
+    Route::get('answers/{id}', [Answer::class,'show']);
+    Route::get('questions', [Question::class, 'index'])->name('questions');
+    Route::get('questions/{category}', [Question::class, 'show'])->middleware('category_type');
 });
 
 //Lyhean

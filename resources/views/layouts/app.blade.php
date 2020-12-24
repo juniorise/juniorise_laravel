@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 
 <style>
@@ -40,7 +41,7 @@
 
 <body>
     <div id="app">
-        @include('layouts.nav')
+        @include('layouts.header')
         <main class="py-4">
             @yield('content')
         </main>
