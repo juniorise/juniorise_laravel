@@ -1,7 +1,8 @@
-## Create a project
-```
-$ composer create-project laravel/laravel --prefer-dist juniorise
-```
+## Run this project a project
+1. Delete "/vendor" folder
+2. and execute `composer install`
+3. then run project `php artisan serve`
+
 ## Install Bootstrap
 ```
 $ composer require laravel/ui
@@ -12,17 +13,3 @@ Finally, you need to install the bootstrap package and its dependencies from npm
 $ npm install
 $ npm run dev
 ```
-## Install Font Awesome
-```
-$ npm i --save @fortawesome/fontawesome-free
-```
-And import font awesome scss in app.scss or your custom scss file
-```
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-```
-Compile your assets npm run dev or npm run production and include your compiled css into layout
-
-
