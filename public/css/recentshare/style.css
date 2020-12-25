@@ -1,0 +1,30 @@
+a:hover {
+    color: inherit;
+}
+.profile-pic {
+    width: 48px;
+    height: 48px;
+}
+
+.profile-container textarea {
+    padding: 10px 10px 0 14px;
+    height: 20px;
+    min-height: 49px;
+    outline: none;
+    resize: none;
+    vertical-align: top;
+}
+
+.tab-menu a {
+    width: 48%;
+    border-radius: 20px;
+}
+
+.emoji-reaction {
+    width: 60.48px;
+    height: 28px;
+    background-color: #ced4da;
+    border-radius: 100px;
+}
+
+

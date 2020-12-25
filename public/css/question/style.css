@@ -1,0 +1,5 @@
+@media screen and (max-width:485px){
+    .cmt-btn div a,.emoji-icon {
+        font-size: 10px;
+    }
+}
