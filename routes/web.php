@@ -27,13 +27,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('screens/admin/dashboard');
     });
-    Route::get('/managepost', function () {
+    Route::get('/manage-post', function () {
         return view('screens/admin/managepost');
     });
-    Route::get('/usersaccount', function () {
+    Route::get('/user-account', function () {
         return view('screens/admin/usersaccount');
     });
-    Route::get('/queryselect', function () {
+    Route::get('/query-select', function () {
         return view('screens/admin/queryselect');
     });
 });

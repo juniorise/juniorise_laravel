@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,19 +16,26 @@
 
     <!-- Styles -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/home/home.css') }}">
 </head>
 
 <style>
     .hat-icon {
-        bottom:9px;
-        right:2px;
+        bottom: 9px;
+        right: 2px;
         transform: matrix(0.87, 0.46, -0.51, 0.88, 0, 0);
     }
+
     .highlight {
-        background-image: url({{ asset('assets/home/brush.svg')}});
+        background-image: url({{ asset('assets/home/brush.svg')
     }
+    }
+
+    );
+    }
+
 </style>
 
 <body>
@@ -36,8 +44,17 @@
             @include('layouts.logo', ["isLight"=>true])
             <div class="d-flex justify-content-end">
                 <div class="sign-in-sign-up d-flex">
+                    <div class="btn align-self-center text-decoration-none">
                         <a class="text-dark" href="#" id="loginBtn">Login</a>
                     </div>
+                    <div class="text-primary btn border border-primary align-self-center rounded-0 ml-4">
+                        <a href="#" id="signUpBtn">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="py-4">
+            @yield('content')
         </main>
     </div>
     @include('layouts.footer')
@@ -48,11 +65,13 @@
                 scrollTop: $("#section-4").offset().top
             }, 250);
         });
-        window.onbeforeunload = function () {
+        window.onbeforeunload = function() {
             $('html, body').animate({
                 scrollTop: 0,
             }, 250);
         }
+
     </script>
 </body>
+
 </html>

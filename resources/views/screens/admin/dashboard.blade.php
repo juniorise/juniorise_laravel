@@ -1,20 +1,14 @@
-<script src="https://kit.fontawesome.com/7670f56296.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../../../sass/admin/dashboard/dashboard.css">
-@extends('layouts.app')
-@section('content')
+@extends('layouts.admin')
 
+@section('content')
 <div class="content-dashboard">
 <div class="side-bar">
     <div class="bar">
         <ul class="list">
-            <li class="list-item link-active"><a class="link" href="dashboard.html">Dashboard</a></li>
-            <li class="list-item"><a class="link" href="manage-post.html">Manage Post</a></li>
-            <li class="list-item"><a class="link" href="user-account.html">User Account</a></li>
-            <li class="list-item"><a class="link" href="query-select.html">Query Select</a></li>
-            <li class="list-item administrator"><a class="link" href="#">Administrator</a></li>
-            <li class="list-item admin-active"><a class="link" href="#">Hong Lyhean</a><button class="out" type="submit">Sign out</button></li>
-            <li class="list-item"><a class="link" href="#">Kok Sopanha</a></li>
-            <li class="list-item"><a class="link" href="#">Choem Thea</a></li>
+            <li class="list-item link-active"><a class="link" href="dashboard">Dashboard</a></li>
+            <li class="list-item"><a class="link" href="manage-post">Manage Post</a></li>
+            <li class="list-item"><a class="link" href="user-account">User Account</a></li>
+            <li class="list-item"><a class="link" href="query-select">Query Select</a></li>
         </ul> <!--! list-->
     </div> <!--! bar-->
 
@@ -24,7 +18,6 @@
 </div> <!--! side-bar-->
 
 <div class="main">
-
     <div class="user-board">
         <div class="card-1">
             <div class="user">
