@@ -1,0 +1,381 @@
+.content-query-select {
+  font-family: "Ubuntu";
+  display: -ms-grid;
+  display: grid;
+  height: auto;
+  -ms-grid-columns: 20% 20% 20% 20% 20%;
+      grid-template-columns: 20% 20% 20% 20% 20%;
+      grid-template-areas: "side-bar main main main main";
+}
+
+.content-query-select .side-bar {
+  background-color: #343A40;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: side-bar;
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 48px;
+      grid-template-rows: auto 48px;
+      grid-template-areas: "bar" "version";
+}
+
+.content-query-select .side-bar .bar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: bar;
+}
+
+.content-query-select .side-bar .bar .list {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.content-query-select .side-bar .bar .list .link-active {
+  background-color: #007BFF;
+}
+
+.content-query-select .side-bar .bar .list .administrator {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content-query-select .side-bar .bar .list .admin-active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.content-query-select .side-bar .bar .list .list-item {
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+}
+
+.content-query-select .side-bar .bar .list .list-item .out {
+  position: absolute;
+  right: 5px;
+  background-color: #DC3545;
+  font-size: 14px;
+  border: 1px solid #DC3545;
+  padding: 8px 22px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.content-query-select .side-bar .bar .list .list-item .link {
+  padding-left: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.content-query-select .side-bar .version {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: version;
+  height: 48px;
+  background-color: #FFFFFF;
+  color: #343A40;
+}
+
+.content-query-select .side-bar .version p {
+  margin-left: 20px;
+}
+
+.content-query-select .main {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-area: main;
+  margin: 20px 70px;
+  margin-bottom: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.content-query-select .main .query {
+  margin-bottom: 10px;
+}
+
+.content-query-select .main .query form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.content-query-select .main .query form input {
+  width: 764.156px;
+  height: 46px;
+  border: 1px solid #DFDFDF;
+}
+
+.content-query-select .main .query form input::-webkit-input-placeholder {
+  font-size: 16px;
+  font-family: "Ubuntu";
+}
+
+.content-query-select .main .query form input[type="text"] {
+  font-size: 16px;
+  font-family: "Ubuntu";
+  padding-left: 20px;
+}
+
+.content-query-select .main .query form button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+  background-color: #007BFF;
+  padding: 22px 24px;
+  border: 3px solid #007BFF;
+  height: 46px;
+  font-size: 16px;
+}
+
+.content-query-select .main .table .table-name {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: "name email school major uid";
+  background: #007BFF;
+  color: #ffffff;
+}
+
+.content-query-select .main .table .table-name .name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: name;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .table-name .email {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: email;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .table-name .school {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: school;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .table-name .major {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: major;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .table-name .uid {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: uid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+      grid-template-areas: "data-1" "data-2";
+}
+
+.content-query-select .main .table .data .data-holder-1 {
+  background: #F5F6F7;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: data-1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: "name email school major uid";
+}
+
+.content-query-select .main .table .data .data-holder-1 .name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: name;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-1 .email {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: email;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-1 .school {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: school;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-1 .major {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: major;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-1 .uid {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: uid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: data-2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: "name email school major uid";
+}
+
+.content-query-select .main .table .data .data-holder-2 .name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: name;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-2 .email {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: email;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-2 .school {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: school;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-2 .major {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: major;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-query-select .main .table .data .data-holder-2 .uid {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: uid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=query-select.css.map */

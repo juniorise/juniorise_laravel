@@ -1,0 +1,265 @@
+.content-user-account {
+    display: grid;
+    height: auto;
+    font-family: "Ubuntu";
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-areas: "side-bar main main main main";
+
+    .side-bar {
+        background-color: #343A40;
+        grid-area: side-bar;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        display: grid;
+        grid-template-rows: auto 48px;
+        grid-template-areas: "bar" "version";
+        
+        .bar{
+            grid-area: bar;
+            .list{
+                list-style-type: none;
+                padding: 0px;
+                margin: 0px;
+                .link-active{
+                    background-color: #007BFF;
+                }
+                .administrator{
+                    background: rgba(255, 255, 255, 0.3);
+                }
+                .admin-active{
+                    background: rgba(255, 255, 255, 0.1);
+
+                }
+                .list-item{
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    color: #ffffff;
+
+                    .out{
+                        position: absolute;
+                        right: 5px;
+                        background-color: #DC3545;
+                        font-size: 14px;
+                        border: 1px solid #DC3545;
+                        padding: 8px 22px;
+                        border-radius: 30px;
+                        -webkit-border-radius: 30px;
+                        -moz-border-radius: 30px;
+                        -ms-border-radius: 30px;
+                        -o-border-radius: 30px;
+                        color: #ffffff;
+                        cursor: pointer;
+                    }
+                    .link{
+                        padding-left: 20px;
+                        color: #FFFFFF;
+                        text-decoration: none;
+                    }
+    
+                } // ! list-item
+    
+            } // ! list
+        }
+        .version{
+            grid-area: version;
+            height: 48px;
+            background-color: #FFFFFF;
+            color: #343A40;
+            p{
+                margin-left: 20px;
+
+            }
+        }
+    } // ! side-bar
+
+    .main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-areas: "user-container user-container user-container small-detail";
+        grid-gap: 20px;
+        margin: 20px 70px;
+        margin-bottom: 0px;
+        .user-container{
+            grid-area: user-container;
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas: "title" "search-bar" "user-list" "more-recent";
+            .title{
+                grid-area: title;
+            }
+            .search-bar{
+                grid-area: search-bar;
+                margin-bottom: 10px;
+                form{
+                    input{
+                        width: 664.156px;
+                        height: 46px;
+                        border: 1px solid #DFDFDF;
+
+                    }
+                    input::-webkit-input-placeholder {
+                        font-size: 16px;
+                        font-family: "Ubuntu";
+                    }
+                    input[type="text"] {
+                        font-size: 16px;
+                        font-family: "Ubuntu";
+                        padding-left: 20px;
+                    }
+
+                }
+            }
+            .user-list{
+                grid-area: user-list;
+                margin-bottom: 10px;
+                .list{
+                    border: 1px solid #CED4DA;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-areas: "profile-info profile-info view-profile";
+                    margin-bottom: 10px;
+                    .profile-info{
+                        grid-area: profile-info;
+                        display: flex;
+                        flex-grow: 2;
+                        margin-bottom: 10px;
+                        img{
+                            margin-bottom: 10px;
+                            width: 48px;
+                            height: 48px;
+                            margin: 10px 10px 0px 10px;
+                            border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                        }
+                        .short-info{
+                            display: grid;
+                            grid-template-rows: auto auto;
+                            grid-template-areas: "username" "major";
+                            .username{
+                                grid-area: username;
+                                color: #343A40;
+                                margin: 0px;
+                                margin-top: 10px;
+    
+                                .modify-date{
+                                    grid-area: join-date;
+                                    color: #6C757D;
+                                    font-size: 14px;
+                                    margin: 0px;
+                                    margin-top: 10px;
+                                }
+                            }
+                            .major{
+                                grid-area: major;
+                                color: #6C757D;
+                                font-size: 14px;
+                                margin: 0px;
+                                margin-top: 10px;
+                            }
+                            
+                            .info{
+                                grid-area: major;
+                                color: #6C757D;
+                                font-size: 14px;
+                                margin: 0px;
+                                margin-top: 10px;
+                                margin-right: 10px;
+                            }
+                        } // ! short-info
+                    } // ! profile-info
+                    .view-profile{
+                        grid-area: view-profile;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        margin-right: 10px;
+                        
+                        a{
+                            text-decoration: none;
+                            padding: 6px 12px;
+                            background-color: #007BFF;
+                            color: #ffffff;
+                            border: 1px solid #007BFF;
+                            cursor: pointer;
+                            }
+                        
+                    }
+                } // ! list
+            } // ! user-list
+            .see-more{
+                grid-area: more-recent;
+                color: #007BFF;
+                text-align: center;
+            }
+        } // ! user-container
+        .small-detail{
+            grid-area: small-detail;
+            margin-top: 50px;
+            position: sticky;
+            height: 100vh;
+            top: 10px;
+            .mini-profile{
+                display: grid;
+                grid-template-rows: 142px 48px auto;
+                grid-template-areas: "image" "popular" "detail";
+
+                .image{
+                    grid-area: image;
+                    img{
+                        width: 253px;
+                        height: 142px;
+                    }
+                }
+                .popular{
+                    grid-area: popular;
+                    background: linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), #FFFFFF;
+                    border: 1px solid #DFDFDF;
+                    display: flex;
+                    // justify-content: center;
+                    align-items: center;
+                    p{
+                        margin-left: 20px;
+                    }
+                }
+                .detail{
+                    grid-area: detail;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    padding-bottom: 30px;
+                    border: 1px solid #DFDFDF;
+                    .username{
+                        .user-name{
+                            font-weight: 500;
+                            font-size: 20px;
+                            margin-bottom: 0px;
+                        }
+                        .major{
+                            color: #6C757D;
+                            margin-top: 5px;
+                        }
+                    }
+                    .quote{
+    
+                    }
+                    .edit-profile{
+                        a{
+                            text-decoration: none;
+                            background: #007BFF;
+                            border: 1px solid #007BFF;
+                            color: #ffffff;
+                            padding: 6px 12px;
+    
+                        }
+                    }
+                } // ! detail
+            } // ! mini-profile
+        } // ! small-detail
+
+    } // ! main
+} //! content-user-account
