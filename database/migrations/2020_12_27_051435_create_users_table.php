@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name',25);
             $table->string('last_name',25);
             $table->string('role',45);
-            $table->string('profilePath',400);
+            $table->string('profilePath',400)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
