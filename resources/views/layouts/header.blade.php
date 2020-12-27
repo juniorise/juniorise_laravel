@@ -8,7 +8,8 @@
                 </span>
             </div>
             <div class="input-group search-bar">
-                <input class="border-0 col-xl-6 col-md-5 bg-secondary text-white shadow-none searchbar" placeholder="Search major,experience..."/>
+                <input class="border-0 col-xl-6 col-md-5 bg-secondary text-white shadow-none searchbar"
+                    placeholder="Search major,experience..." />
                 <div class="input-group-prepend">
                     <span class="search-btn bg-secondary input-group-text border-0">
                         <i class="fas fa-search text-white "></i>

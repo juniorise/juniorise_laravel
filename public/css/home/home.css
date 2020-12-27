@@ -245,5 +245,8 @@
   .section-2 .right-side .img-4 {
     margin-top: -40px !important;
   }
+  .section-2 .right-side .img-4 {
+    display: none;
+  }
 }
 /*# sourceMappingURL=home.css.map */
