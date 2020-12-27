@@ -13,6 +13,7 @@ Route::get('/', function () {
 });
 
 Route::get('/errors', [Errors::class,'index'])->name('errors');
+
 //Panha
 Route::prefix('/')->group(function () {
     Route::get('recentshare', [RecentShare::class,'index'])->name('recentshare');
@@ -39,3 +40,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/on', 'YourController@callMeDirectlyFromUrl');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

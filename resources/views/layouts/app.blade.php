@@ -43,6 +43,22 @@
     .category {
         cursor: pointer;
     }
+    .smart-scroll{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    .scrolled-down{
+        transform:translateY(-100%); transition: all 0.3s ease-in-out;
+    }
+    .scrolled-up{
+        transform:translateY(0); transition: all 0.3s ease-in-out;
+    }
+    .navbar{
+        padding: 0 !important;
+    }
 
 </style>
 
@@ -54,6 +70,26 @@
         </main>
         @include('layouts.footer')
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
+
+        // detect scroll top or down
+        if ($('.smart-scroll').length > 0) { // check if element exists
+            var last_scroll_top = 0;
+            $(window).on('scroll', function() {
+                scroll_top = $(this).scrollTop();
+                if(scroll_top < last_scroll_top) {
+                    $('.smart-scroll').removeClass('scrolled-down').addClass('scrolled-up');
+                }
+                else {
+                    $('.smart-scroll').removeClass('scrolled-up').addClass('scrolled-down');
+                }
+                last_scroll_top = scroll_top;
+            });
+        }
+
+    </script>
 </body>
 
 </html>

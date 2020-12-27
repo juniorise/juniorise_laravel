@@ -120,8 +120,14 @@
     }
 }
 
-.section-4 {
+.section-4{
     padding: 20px 0;
+    form {
+        .w-50{
+            width: 100% !important;
+            transition: all 1s ease;
+        }
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -160,15 +166,24 @@
         }
         .right-side {
             display: flex;
-            justify-content: center;
             flex-direction: column;
+
+            img{
+                width: 80% !important;
+            }
             .img-2,
             .img-3,
             .img-4 {
                 margin-top: -40px !important;
             }
-            .img-4{
-                display: none;
+        }
+    }
+
+    .section-4{
+        form {
+            .d-flex{
+                flex-direction: column;
+                transition: all 1s ease;
             }
         }
     }
