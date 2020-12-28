@@ -51,6 +51,16 @@
                 <div class="reaction-container">
                     <div class="d-flex border-top">
                         <span class="emoji-box btn border-right rounded-0">
+                            <div class="emoji-picker" style="margin-bottom:-45px;">
+                                <form action="">
+                                    <div class="d-flex justify-content-around align-items-center">
+                                        <button class=" border-0">👍</button>
+                                        <button class=" border-0">👎</button>
+                                        <button class=" border-0">❤️</button>
+                                        <button class=" border-0" >👏</button>
+                                    </div>
+                                </form>
+                            </div>
                             <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
                         </span>
                         <span class="reaction-emoji btn border-right rounded-0">❤️ 10</span>
