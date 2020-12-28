@@ -1,4 +1,5 @@
 .content-dashboard {
+    margin-top: 0px;
     font-family: "Ubuntu";
     display: grid;
     height: auto;
@@ -14,11 +15,11 @@
         display: grid;
         grid-template-rows: auto 48px;
         grid-template-areas: "bar" "version";
-        
+
         .bar{
-            
+
             grid-area: bar;
-            
+
             .list{
                 list-style-type: none;
                 padding: 0px;
@@ -57,11 +58,19 @@
                     .link{
                         padding-left: 20px;
                         color: #FFFFFF;
-                        text-decoration: none;
+                         text-decoration: none;
                     }
-    
+
                 } // ! list-item
-    
+                .list-item:hover{
+                    background-color: gray;
+                    // border: solid gray 1px;
+
+                .link{
+                    color: black;
+                }
+            }
+
             } // ! list
         }
         .version{
@@ -243,7 +252,7 @@
                 .posted-reacted{
                     grid-area: posted-reacted;
                     margin-bottom: 0px;
-        
+
                     .user-posting{
                         .posted{
                             border: 1px solid #CED4DA;
@@ -251,7 +260,7 @@
                             display: grid;
                             grid-template-rows: auto auto;
                             grid-template-areas: "profile" "question";
-    
+
                             .profile{
                                 grid-area: profile;
                                 display: flex;
@@ -277,7 +286,7 @@
                                             color: #343A40;
                                             margin: 0px;
                                             margin-top: 10px;
-    
+
                                             .join-date{
                                                 grid-area: join-date;
                                                 color: #6C757D;
@@ -286,27 +295,27 @@
                                                 margin-top: 10px;
                                             }
                                         }
-                                        
+
                                         .major{
                                             grid-area: major;
                                             color: #6C757D;
                                             font-size: 14px;
                                             margin: 0px;
                                             margin-top: 10px;
-    
+
                                             a{
                                                 text-decoration: none;
                                                 color: #007BFF;                                        ;
                                             }
                                         }
                                     } // ! short-info
-    
+
                                 } // ! profile-info
                                 .delete{
                                     flex-grow: 1;
                                     display: flex;
                                     justify-content: flex-end;
-    
+
                                     button{
                                         display: flex;
                                         justify-content: center;
@@ -323,10 +332,20 @@
                                         -ms-border-radius: 4px;
                                         -o-border-radius: 4px;
                                         cursor: pointer;
+                                        transition: 0.3;
+                                        -webkit-transition: 0.3;
+                                        -moz-transition: 0.3;
+                                        -ms-transition: 0.3;
+                                        -o-transition: 0.3;
+}
+                                    button:hover{
+                                        color: #DC3545;
+                                        background-color: transparent;
 
                                     }
+
                                 }
-    
+
                             } // ! profile
                             .question{
                                 grid-area: question;
@@ -338,9 +357,9 @@
                                 }
                             }
                         } // ! posted
-    
+
                         .reacted-commented{
-                            height: auto;
+                            height: 42px;
                             margin-bottom: 10px;
                             display: grid;
                             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -354,6 +373,8 @@
                                 .i-con{
                                     margin-left: 10px;
                                     margin-right: 10px;
+                                    margin-top: auto;
+                                    margin-bottom: auto;
                                     .fa-heart{
                                         color: red;
                                     }
@@ -371,6 +392,10 @@
                                 display: flex;
                                 justify-content: center;
                                 color: #343A40;
+                                p{
+                                    margin-top: auto;
+                                    margin-bottom: auto;
+                                }
                             }
                             .read-answer{
                                 grid-area: read-answer;
@@ -378,6 +403,10 @@
                                 justify-content: center;
                                 border: 1px solid #007BFF;
                                 color: #007BFF;
+                                p{
+                                    margin-top: auto;
+                                    margin-bottom: auto;
+                                }
                             }
                         } // ! reacted-commented
                     } // ! user-posting
@@ -413,7 +442,7 @@
                                 display: grid;
                                 grid-template-rows: auto auto;
                                 grid-template-areas: "profile" "question";
-                                
+
                                 .profile{
                                     grid-area: profile;
                                     display: flex;
@@ -439,7 +468,7 @@
                                                 color: #343A40;
                                                 margin: 0px;
                                                 margin-top: 10px;
-        
+
                                                 .join-date{
                                                     grid-area: join-date;
                                                     color: #6C757D;
@@ -448,14 +477,14 @@
                                                     margin-top: 10px;
                                                 }
                                             }
-                                            
+
                                             .major{
                                                 grid-area: major;
                                                 color: #6C757D;
                                                 font-size: 14px;
                                                 margin: 0px;
                                                 margin-top: 10px;
-        
+
                                                 a{
                                                     text-decoration: none;
                                                     color: #007BFF;                                        ;
@@ -492,7 +521,7 @@
             .title{
                 grid-area: title;
             }
-            
+
             .admin{
                 grid-area: admin-activities;
 
@@ -535,7 +564,7 @@
                                     margin-top: 10px;
                                 }
                             }
-                            
+
                             .info{
                                 grid-area: major;
                                 color: #6C757D;
@@ -552,7 +581,7 @@
 
             } // ! admin
 
-        } // ! admin-activities        
+        } // ! admin-activities
 
     } // ! main
 } //! content

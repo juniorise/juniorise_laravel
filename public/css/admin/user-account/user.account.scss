@@ -14,7 +14,7 @@
         display: grid;
         grid-template-rows: auto 48px;
         grid-template-areas: "bar" "version";
-        
+
         .bar{
             grid-area: bar;
             .list{
@@ -57,9 +57,16 @@
                         color: #FFFFFF;
                         text-decoration: none;
                     }
-    
+
                 } // ! list-item
-    
+                .list-item:hover{
+                    background-color: gray;
+                    // border: solid gray 1px;
+
+                .link{
+                    color: black;
+                }
+            }
             } // ! list
         }
         .version{
@@ -146,7 +153,7 @@
                                 color: #343A40;
                                 margin: 0px;
                                 margin-top: 10px;
-    
+
                                 .modify-date{
                                     grid-area: join-date;
                                     color: #6C757D;
@@ -162,7 +169,7 @@
                                 margin: 0px;
                                 margin-top: 10px;
                             }
-                            
+
                             .info{
                                 grid-area: major;
                                 color: #6C757D;
@@ -179,7 +186,7 @@
                         justify-content: flex-end;
                         align-items: center;
                         margin-right: 10px;
-                        
+
                         a{
                             text-decoration: none;
                             padding: 6px 12px;
@@ -188,7 +195,7 @@
                             border: 1px solid #007BFF;
                             cursor: pointer;
                             }
-                        
+
                     }
                 } // ! list
             } // ! user-list
@@ -245,7 +252,7 @@
                         }
                     }
                     .quote{
-    
+
                     }
                     .edit-profile{
                         a{
@@ -254,7 +261,7 @@
                             border: 1px solid #007BFF;
                             color: #ffffff;
                             padding: 6px 12px;
-    
+
                         }
                     }
                 } // ! detail

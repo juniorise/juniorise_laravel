@@ -81,6 +81,14 @@
   text-decoration: none;
 }
 
+.content-user-account .side-bar .bar .list .list-item:hover {
+  background-color: gray;
+}
+
+.content-user-account .side-bar .bar .list .list-item:hover .link {
+  color: black;
+}
+
 .content-user-account .side-bar .version {
   -ms-grid-row: 2;
   -ms-grid-column: 1;

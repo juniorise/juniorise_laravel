@@ -14,7 +14,7 @@
         display: grid;
         grid-template-rows: auto 48px;
         grid-template-areas: "bar" "version";
-        
+
         .bar{
             grid-area: bar;
             .list{
@@ -57,9 +57,16 @@
                         color: #FFFFFF;
                         text-decoration: none;
                     }
-    
+
                 } // ! list-item
-    
+                .list-item:hover{
+                    background-color: gray;
+                    // border: solid gray 1px;
+
+                .link{
+                    color: black;
+                }
+            }
             } // ! list
         }
         .version{
@@ -216,6 +223,6 @@
                }
            } // ! data
         } // ! table
-        
+
     } // ! main
 } //! content
