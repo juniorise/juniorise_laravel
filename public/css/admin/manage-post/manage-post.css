@@ -106,6 +106,15 @@
   text-decoration: none;
 }
 
+.content-manage-post .side-bar .bar .list .list-item:hover {
+  background-color: transparent;
+  border: solid #DC3545 1px;
+}
+
+.content-manage-post .side-bar .bar .list .list-item:hover .link {
+  color: #007BFF;
+}
+
 .content-manage-post .side-bar .version {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -286,6 +295,11 @@
   cursor: pointer;
 }
 
+.content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .posted .profile .delete button:hover {
+  color: #DC3545;
+  background-color: transparent;
+}
+
 .content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .posted .question {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -298,7 +312,7 @@
 }
 
 .content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented {
-  height: auto;
+  height: 42px;
   margin-bottom: 10px;
   display: -ms-grid;
   display: grid;
@@ -325,6 +339,8 @@
 .content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .reacted .i-con {
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .reacted .i-con .fa-heart {
@@ -354,6 +370,11 @@
   color: #343A40;
 }
 
+.content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .commented p {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .read-answer {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
@@ -366,6 +387,11 @@
           justify-content: center;
   border: 1px solid #007BFF;
   color: #007BFF;
+}
+
+.content-manage-post .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .read-answer p {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .content-manage-post .main .user-activities .recent-post .see-more {
@@ -519,6 +545,11 @@
   border: 1px solid #CED4DA;
 }
 
+.content-manage-post .main .recent-question .user .activities .user-question .approval .delete p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .content-manage-post .main .recent-question .user .activities .user-question .approval .duplicate {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -526,5 +557,10 @@
   color: #007BFF;
   border: 1px solid #007BFF;
   padding-left: 10px;
+}
+
+.content-manage-post .main .recent-question .user .activities .user-question .approval .duplicate p {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 /*# sourceMappingURL=manage-post.css.map */
