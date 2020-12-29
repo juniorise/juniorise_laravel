@@ -13,15 +13,17 @@ class CreatePostCommentTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_comment', function (Blueprint $table) {
-            $table->increments('id');
-            $table->Integer('post_id')->unsigned();
-            $table->Integer('commented_by')->unsigned();
-            $table->longText('message');
-            $table->timestamp('commented_at');
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-            $table->foreign('commented_by')->references('id')->on('users')->onDelete('cascade');
-        });
+        if(!Schema::hasTable('post_comment')){
+            Schema::create('post_comment', function (Blueprint $table) {
+                $table->increments('id');
+                $table->Integer('post_id')->unsigned();
+                $table->Integer('commented_by')->unsigned();
+                $table->longText('message');
+                $table->timestamp('commented_at');
+                $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+                $table->foreign('commented_by')->references('id')->on('users')->onDelete('cascade');
+            });
+        }
     }
 
     /**

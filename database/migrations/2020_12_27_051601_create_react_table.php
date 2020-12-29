@@ -13,15 +13,17 @@ class CreateReactTable extends Migration
      */
     public function up()
     {
-        Schema::create('react', function (Blueprint $table) {
-            $table->Integer('user_id')->unsigned();
-            $table->Integer('posted_by')->unsigned();
-            $table->Integer('reactionEmoji')->unsigned();
-            $table->Integer('reactAmount');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('posted_by')->references('id')->on('posts')->onDelete('cascade');
-            $table->foreign('reactionEmoji')->references('id')->on('reaction_emoji')->onDelete('cascade');
-        });
+        if(!Schema::hasTable('react')){
+            Schema::create('react', function (Blueprint $table) {
+                $table->Integer('user_id')->unsigned();
+                $table->Integer('posted_by')->unsigned();
+                $table->Integer('reactionEmoji')->unsigned();
+                $table->Integer('reactAmount');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->foreign('posted_by')->references('id')->on('posts')->onDelete('cascade');
+                $table->foreign('reactionEmoji')->references('id')->on('reaction_emoji')->onDelete('cascade');
+            });
+        }
     }
 
     /**

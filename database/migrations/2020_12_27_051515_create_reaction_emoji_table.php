@@ -13,11 +13,13 @@ class CreateReactionEmojiTable extends Migration
      */
     public function up()
     {
-        Schema::create('reaction_emoji', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('emojiName',45);
-            $table->char('emojiImage',1);
-        });
+        if(!Schema::hasTable('reaction_emoji')){
+            Schema::create('reaction_emoji', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('emojiName',45);
+                $table->char('emojiImage',1);
+            });
+        }
     }
 
     /**
