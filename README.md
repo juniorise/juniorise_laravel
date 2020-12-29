@@ -1,7 +1,13 @@
 ## Run this project a project
-1. Delete "/vendor" folder
-2. and execute `composer install`
-3. then run project `php artisan serve`
+1. and execute `composer install`
+2. then run project `php artisan serve`
+
+if there is any problem then delete "/vendor" folder, and run above command again.
+
+## Run migration
+```
+heroku run php artisan migrate
+```
 
 ## Install Bootstrap
 ```
