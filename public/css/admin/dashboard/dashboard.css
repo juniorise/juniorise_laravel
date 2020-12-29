@@ -1,4 +1,5 @@
 .content-dashboard {
+  margin-top: 0px;
   font-family: "Ubuntu";
   display: -ms-grid;
   display: grid;
@@ -79,6 +80,15 @@
   padding-left: 20px;
   color: #FFFFFF;
   text-decoration: none;
+}
+
+.content-dashboard .side-bar .bar .list .list-item:hover {
+  background-color: transparent;
+  border: solid #DC3545 1px;
+}
+
+.content-dashboard .side-bar .bar .list .list-item:hover .link {
+  color: #007BFF;
 }
 
 .content-dashboard .side-bar .version {
@@ -454,6 +464,11 @@
   cursor: pointer;
 }
 
+.content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .posted .profile .delete button:hover {
+  color: #DC3545;
+  background-color: transparent;
+}
+
 .content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .posted .question {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -466,7 +481,7 @@
 }
 
 .content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented {
-  height: auto;
+  height: 42px;
   margin-bottom: 10px;
   display: -ms-grid;
   display: grid;
@@ -493,6 +508,8 @@
 .content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .reacted .i-con {
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .reacted .i-con .fa-heart {
@@ -522,6 +539,11 @@
   color: #343A40;
 }
 
+.content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .commented p {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .read-answer {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
@@ -534,6 +556,11 @@
           justify-content: center;
   border: 1px solid #007BFF;
   color: #007BFF;
+}
+
+.content-dashboard .main .user-activities .recent-post .posted-reacted .user-posting .reacted-commented .read-answer p {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .content-dashboard .main .user-activities .recent-post .see-more {
