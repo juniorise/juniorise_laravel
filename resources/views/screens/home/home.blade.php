@@ -113,9 +113,9 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text" style="width: 47px !important;">🎓</div>
                                 </div>
-                                <input type="text" class="form-control @error('role') is-invalid @enderror" id="school" placeholder="Enter your role, eg. CS student"
-                                name="role" value="{{ old('role') }}" required autofocus>
-                                @error('role')
+                                <input type="text" class="form-control @error('major') is-invalid @enderror" id="major" placeholder="Enter your major, eg. CS student"
+                                name="major" value="{{ old('major') }}" required autofocus>
+                                @error('major')
                                     <span class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </span>
