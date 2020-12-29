@@ -8,101 +8,6 @@
       grid-template-areas: "side-bar main main main main";
 }
 
-.content-query-select .side-bar {
-  background-color: #343A40;
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: side-bar;
-  height: 100vh;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto 48px;
-      grid-template-rows: auto 48px;
-      grid-template-areas: "bar" "version";
-}
-
-.content-query-select .side-bar .bar {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: bar;
-}
-
-.content-query-select .side-bar .bar .list {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}
-
-.content-query-select .side-bar .bar .list .link-active {
-  background-color: #007BFF;
-}
-
-.content-query-select .side-bar .bar .list .administrator {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.content-query-select .side-bar .bar .list .admin-active {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.content-query-select .side-bar .bar .list .list-item {
-  height: 48px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #ffffff;
-}
-
-.content-query-select .side-bar .bar .list .list-item .out {
-  position: absolute;
-  right: 5px;
-  background-color: #DC3545;
-  font-size: 14px;
-  border: 1px solid #DC3545;
-  padding: 8px 22px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.content-query-select .side-bar .bar .list .list-item .link {
-  padding-left: 20px;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-.content-query-select .side-bar .bar .list .list-item:hover {
-  background-color: transparent;
-  border: solid #DC3545 1px;
-}
-
-.content-query-select .side-bar .bar .list .list-item:hover .link {
-  color: #007BFF;
-}
-
-.content-query-select .side-bar .version {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: version;
-  height: 48px;
-  background-color: #FFFFFF;
-  color: #343A40;
-}
-
-.content-query-select .side-bar .version p {
-  margin-left: 20px;
-}
-
 .content-query-select .main {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -135,7 +40,7 @@
 .content-query-select .main .query form input {
   width: 764.156px;
   height: 46px;
-  border: 1px solid #DFDFDF;
+  border: 1px solid #dfdfdf;
 }
 
 .content-query-select .main .query form input::-webkit-input-placeholder {
@@ -160,9 +65,9 @@
       -ms-flex-align: center;
           align-items: center;
   color: #ffffff;
-  background-color: #007BFF;
+  background-color: #007bff;
   padding: 22px 24px;
-  border: 3px solid #007BFF;
+  border: 3px solid #007bff;
   height: 46px;
   font-size: 16px;
 }
@@ -173,7 +78,7 @@
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       grid-template-areas: "name email school major uid";
-  background: #007BFF;
+  background: #007bff;
   color: #ffffff;
 }
 
@@ -246,7 +151,7 @@
 }
 
 .content-query-select .main .table .data .data-holder-1 {
-  background: #F5F6F7;
+  background: #f5f6f7;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: data-1;
