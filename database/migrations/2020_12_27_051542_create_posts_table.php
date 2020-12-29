@@ -13,16 +13,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->Integer('category_id')->unsigned();
-            $table->Integer('posted_by')->unsigned();
-            $table->longText('message');
-            $table->timestamp('posted_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('posted_by')->references('id')->on('users')->onDelete('cascade');
-        });
+        if(!Schema::hasTable('posts')){
+            Schema::create('posts', function (Blueprint $table) {
+                $table->increments('id');
+                $table->Integer('category_id')->unsigned();
+                $table->Integer('posted_by')->unsigned();
+                $table->longText('message');
+                $table->timestamp('posted_at')->nullable();
+                $table->timestamp('updated_at')->nullable();
+                $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+                $table->foreign('posted_by')->references('id')->on('users')->onDelete('cascade');
+            });
+        }
     }
 
     /**
