@@ -5,9 +5,11 @@
 if there is any problem then delete "/vendor" folder, and run above command again.
 
 ## Run migration
-```
-heroku run php artisan migrate
-```
+Local: 
+1. Normal: `php artisan migrate`
+2. Reset database: `php artisan migrate:fresh`
+
+Host: `heroku run php artisan migrate`
 
 ## Install Bootstrap
 ```
