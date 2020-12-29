@@ -5,82 +5,6 @@
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-areas: "side-bar main main main main";
 
-    .side-bar {
-        background-color: #343A40;
-        grid-area: side-bar;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        display: grid;
-        grid-template-rows: auto 48px;
-        grid-template-areas: "bar" "version";
-
-        .bar{
-            grid-area: bar;
-            .list{
-                list-style-type: none;
-                padding: 0px;
-                margin: 0px;
-                .link-active{
-                    background-color: #007BFF;
-                }
-                .administrator{
-                    background: rgba(255, 255, 255, 0.3);
-                }
-                .admin-active{
-                    background: rgba(255, 255, 255, 0.1);
-
-                }
-                .list-item{
-                    height: 48px;
-                    display: flex;
-                    align-items: center;
-                    color: #ffffff;
-
-                    .out{
-                        position: absolute;
-                        right: 5px;
-                        background-color: #DC3545;
-                        font-size: 14px;
-                        border: 1px solid #DC3545;
-                        padding: 8px 22px;
-                        border-radius: 30px;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        -ms-border-radius: 30px;
-                        -o-border-radius: 30px;
-                        color: #ffffff;
-                        cursor: pointer;
-                    }
-                    .link{
-                        padding-left: 20px;
-                        color: #FFFFFF;
-                        text-decoration: none;
-                    }
-
-                } // ! list-item
-                .list-item:hover{
-                    background-color: transparent;
-                    border: solid #DC3545 1px;
-
-                    .link{
-                        color: #007BFF;
-                    }
-                }
-            } // ! list
-        }
-        .version{
-            grid-area: version;
-            height: 48px;
-            background-color: #FFFFFF;
-            color: #343A40;
-            p{
-                margin-left: 20px;
-
-            }
-        }
-    } // ! side-bar
-
     .main {
         grid-area: main;
         margin: 20px 70px;
@@ -88,16 +12,15 @@
         display: flex;
         flex-direction: column;
 
-        .query{
+        .query {
             margin-bottom: 10px;
-            form{
+            form {
                 display: flex;
                 justify-content: space-between;
-                input{
+                input {
                     width: 764.156px;
                     height: 46px;
-                    border: 1px solid #DFDFDF;
-
+                    border: 1px solid #dfdfdf;
                 }
                 input::-webkit-input-placeholder {
                     font-size: 16px;
@@ -108,121 +31,120 @@
                     font-family: "Ubuntu";
                     padding-left: 20px;
                 }
-                button{
+                button {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     color: #ffffff;
-                    background-color: #007BFF;
+                    background-color: #007bff;
                     padding: 22px 24px;
-                    border: 3px solid #007BFF;
+                    border: 3px solid #007bff;
                     height: 46px;
                     font-size: 16px;
-            }
+                }
             }
         } // ! query
-        .table{
-            .table-name{
+        .table {
+            .table-name {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
                 grid-template-areas: "name email school major uid";
-                background: #007BFF;
+                background: #007bff;
                 color: #ffffff;
-                .name{
+                .name {
                     grid-area: name;
                     display: flex;
                     justify-content: center;
                 }
-                .email{
+                .email {
                     grid-area: email;
                     display: flex;
                     justify-content: center;
                 }
-                .school{
+                .school {
                     grid-area: school;
                     display: flex;
                     justify-content: center;
                 }
-                .major{
+                .major {
                     grid-area: major;
                     display: flex;
                     justify-content: center;
                 }
-                .uid{
+                .uid {
                     grid-area: uid;
                     display: flex;
                     justify-content: center;
                 }
             }
-           .data{
+            .data {
                 display: grid;
                 grid-template-rows: auto auto;
                 grid-template-areas: "data-1" "data-2";
-               .data-holder-1{
-                    background: #F5F6F7;
+                .data-holder-1 {
+                    background: #f5f6f7;
                     grid-area: data-1;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
                     grid-template-areas: "name email school major uid";
-                    .name{
+                    .name {
                         grid-area: name;
                         display: flex;
                         justify-content: center;
                     }
-                    .email{
+                    .email {
                         grid-area: email;
                         display: flex;
                         justify-content: center;
                     }
-                    .school{
+                    .school {
                         grid-area: school;
                         display: flex;
                         justify-content: center;
                     }
-                    .major{
+                    .major {
                         grid-area: major;
                         display: flex;
                         justify-content: center;
                     }
-                    .uid{
+                    .uid {
                         grid-area: uid;
                         display: flex;
                         justify-content: center;
                     }
-               }
-               .data-holder-2{
+                }
+                .data-holder-2 {
                     grid-area: data-2;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
                     grid-template-areas: "name email school major uid";
-                    .name{
+                    .name {
                         grid-area: name;
                         display: flex;
                         justify-content: center;
                     }
-                    .email{
+                    .email {
                         grid-area: email;
                         display: flex;
                         justify-content: center;
                     }
-                    .school{
+                    .school {
                         grid-area: school;
                         display: flex;
                         justify-content: center;
                     }
-                    .major{
+                    .major {
                         grid-area: major;
                         display: flex;
                         justify-content: center;
                     }
-                    .uid{
+                    .uid {
                         grid-area: uid;
                         display: flex;
                         justify-content: center;
                     }
-               }
-           } // ! data
+                }
+            } // ! data
         } // ! table
-
     } // ! main
 } //! content

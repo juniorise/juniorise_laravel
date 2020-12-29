@@ -6,7 +6,7 @@
     grid-template-areas: "side-bar main main main main";
 
     .side-bar {
-        background-color: #343A40;
+        background-color: #343a40;
         grid-area: side-bar;
         height: 100vh;
         position: sticky;
@@ -15,8 +15,8 @@
         grid-template-rows: auto 48px;
         grid-template-areas: "bar" "version";
 
-        .bar{
-            .background-1{
+        .bar {
+            .background-1 {
                 position: absolute;
                 width: 316px;
                 height: 407.84px;
@@ -28,8 +28,8 @@
                 -moz-transform: rotate(-38.2deg);
                 -ms-transform: rotate(-38.2deg);
                 -o-transform: rotate(-38.2deg);
-}
-            .background-2{
+            }
+            .background-2 {
                 background: linear-gradient(210.75deg, rgba(255, 255, 255, 0.1) -19%, rgba(255, 255, 255, 0) 61.92%);
                 transform: matrix(-0.8, -0.6, -0.6, 0.8, 0, 0);
                 width: 316px;
@@ -40,32 +40,31 @@
             }
             grid-area: bar;
 
-            .list{
+            .list {
                 list-style-type: none;
                 padding: 0px;
                 margin: 0px;
-                .link-active{
-                    background-color: #007BFF;
+                .link-active {
+                    background-color: #007bff;
                 }
-                .administrator{
+                .administrator {
                     background: rgba(255, 255, 255, 0.3);
                 }
-                .admin-active{
+                .admin-active {
                     background: rgba(255, 255, 255, 0.1);
-
                 }
-                .list-item{
+                .list-item {
                     height: 48px;
                     display: flex;
                     align-items: center;
                     color: #ffffff;
 
-                    .out{
+                    .out {
                         position: absolute;
                         right: 5px;
-                        background-color: #DC3545;
+                        background-color: #dc3545;
                         font-size: 14px;
-                        border: 1px solid #DC3545;
+                        border: 1px solid #dc3545;
                         padding: 8px 22px;
                         border-radius: 30px;
                         -webkit-border-radius: 30px;
@@ -75,32 +74,28 @@
                         color: #ffffff;
                         cursor: pointer;
                     }
-                    .link{
+                    .link {
                         padding-left: 20px;
-                        color: #FFFFFF;
+                        color: #ffffff;
                         text-decoration: none;
                     }
-
                 } // ! list-item
-                .list-item:hover{
+                .list-item:hover {
                     background-color: transparent;
-                    border: solid #DC3545 1px;
-
-                    .link{
-                        color: #007BFF;
+                    background-color: #ffffff80;
+                    .link {
+                        color: #000000;
                     }
                 }
-
             } // ! list
         }
-        .version{
+        .version {
             grid-area: version;
             height: 48px;
-            background-color: #FFFFFF;
-            color: #343A40;
-            p{
+            background-color: #ffffff;
+            color: #343a40;
+            p {
                 margin-left: 20px;
-
             }
         }
     } // ! side-bar
@@ -129,29 +124,29 @@
                 grid-template-rows: 50px auto auto;
                 grid-template-areas: "title" "posted-reacted" "more-recent";
 
-                .title{
+                .title {
                     grid-area: title;
                 }
 
-                .posted-reacted{
+                .posted-reacted {
                     grid-area: posted-reacted;
                     margin-bottom: 0px;
 
-                    .user-posting{
-                        .posted{
-                            border: 1px solid #CED4DA;
+                    .user-posting {
+                        .posted {
+                            border: 1px solid #ced4da;
                             height: auto;
                             display: grid;
                             grid-template-rows: auto auto;
                             grid-template-areas: "profile" "question";
 
-                            .profile{
+                            .profile {
                                 grid-area: profile;
                                 display: flex;
-                                .profile-info{
+                                .profile-info {
                                     display: flex;
                                     flex-grow: 2;
-                                    img{
+                                    img {
                                         width: 48px;
                                         height: 48px;
                                         margin: 10px 10px auto 10px;
@@ -161,46 +156,45 @@
                                         -ms-border-radius: 50%;
                                         -o-border-radius: 50%;
                                     }
-                                    .short-info{
+                                    .short-info {
                                         display: grid;
                                         grid-template-rows: 1fr 1fr;
                                         grid-template-areas: "username" "major";
-                                        .username{
+                                        .username {
                                             grid-area: username;
-                                            color: #343A40;
+                                            color: #343a40;
                                             margin: 0px;
                                             margin-top: 10px;
 
-                                            .join-date{
+                                            .join-date {
                                                 grid-area: join-date;
-                                                color: #6C757D;
+                                                color: #6c757d;
                                                 font-size: 14px;
                                                 margin: 0px;
                                                 margin-top: 10px;
                                             }
                                         }
 
-                                        .major{
+                                        .major {
                                             grid-area: major;
-                                            color: #6C757D;
+                                            color: #6c757d;
                                             font-size: 14px;
                                             margin: 0px;
                                             margin-top: 10px;
 
-                                            a{
+                                            a {
                                                 text-decoration: none;
-                                                color: #007BFF;
+                                                color: #007bff;
                                             }
                                         }
                                     } // ! short-info
-
                                 } // ! profile-info
-                                .delete{
+                                .delete {
                                     flex-grow: 1;
                                     display: flex;
                                     justify-content: flex-end;
 
-                                    button{
+                                    button {
                                         display: flex;
                                         justify-content: center;
                                         align-items: center;
@@ -208,8 +202,8 @@
                                         height: 36px;
                                         margin: 10px 20px 0px 0px;
                                         color: #ffffff;
-                                        background: #DC3545;
-                                        border: 1px solid #DC3545;
+                                        background: #dc3545;
+                                        border: 1px solid #dc3545;
                                         border-radius: 4px;
                                         -webkit-border-radius: 4px;
                                         -moz-border-radius: 4px;
@@ -217,85 +211,82 @@
                                         -o-border-radius: 4px;
                                         cursor: pointer;
                                     }
-                                    button:hover{
-                                        color: #DC3545;
+                                    button:hover {
+                                        color: #dc3545;
                                         background-color: transparent;
                                     }
                                 }
-
                             } // ! profile
-                            .question{
+                            .question {
                                 grid-area: question;
                                 margin-left: 10px;
-                                .answer-question{
-                                    span{
-                                        color: #007BFF;
+                                .answer-question {
+                                    span {
+                                        color: #007bff;
                                     }
                                 }
                             }
                         } // ! posted
 
-                        .reacted-commented{
+                        .reacted-commented {
                             height: 42px;
                             margin-bottom: 10px;
                             display: grid;
                             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
                             grid-template-areas: "reacted reacted commented commented read-answer";
-                            .reacted{
+                            .reacted {
                                 grid-area: reacted;
-                                border: 1px solid #CED4DA;
+                                border: 1px solid #ced4da;
                                 display: flex;
-                                color: #343A40;
+                                color: #343a40;
                                 justify-content: space-between;
-                                .i-con{
+                                .i-con {
                                     margin-left: 10px;
                                     margin-right: 10px;
                                     margin-top: auto;
                                     margin-bottom: auto;
-                                    .fa-heart{
+                                    .fa-heart {
                                         color: red;
                                     }
-                                    .fa-sign-language{
-                                        color: #FFC107;
+                                    .fa-sign-language {
+                                        color: #ffc107;
                                     }
-                                    .fa-thumbs-up{
+                                    .fa-thumbs-up {
                                         color: darkorange;
                                     }
                                 }
                             }
-                            .commented{
+                            .commented {
                                 grid-area: commented;
-                                border: 1px solid #CED4DA;
+                                border: 1px solid #ced4da;
                                 display: flex;
                                 justify-content: center;
-                                color: #343A40;
-                                p{
+                                color: #343a40;
+                                p {
                                     margin-top: auto;
                                     margin-bottom: auto;
                                 }
                             }
-                            .read-answer{
+                            .read-answer {
                                 grid-area: read-answer;
                                 display: flex;
                                 justify-content: center;
-                                border: 1px solid #007BFF;
-                                color: #007BFF;
-                                p{
+                                border: 1px solid #007bff;
+                                color: #007bff;
+                                p {
                                     margin-top: auto;
                                     margin-bottom: auto;
                                 }
                             }
                         } // ! reacted-commented
                     } // ! user-posting
-
                 } // ! posted-reacted
-                .see-more{
+                .see-more {
                     grid-area: more-recent;
-                    color: #007BFF;
+                    color: #007bff;
                     text-align: center;
                 }
             } // ! recent-post
-
         } // ! user-activities
 
         .recent-question {
@@ -304,33 +295,33 @@
             grid-template-areas: "title" "recent-question";
             grid-area: admin;
 
-            .title{
+            .title {
                 grid-area: title;
             }
 
-            .user{
+            .user {
                 grid-area: recent-question;
-                .activities{
-                    .user-question{
+                .activities {
+                    .user-question {
                         margin-bottom: 10px;
                         display: grid;
                         grid-template-rows: auto auto;
                         grid-template-areas: "posted" "approval";
-                        .posted{
+                        .posted {
                             grid-area: posted;
-                            border: 1px solid #CED4DA;
+                            border: 1px solid #ced4da;
                             height: auto;
                             display: grid;
                             grid-template-rows: auto auto;
                             grid-template-areas: "profile" "question";
 
-                            .profile{
+                            .profile {
                                 grid-area: profile;
                                 display: flex;
-                                .profile-info{
+                                .profile-info {
                                     display: flex;
                                     flex-grow: 2;
-                                    img{
+                                    img {
                                         width: 48px;
                                         height: 48px;
                                         margin: 10px 10px auto 10px;
@@ -340,68 +331,68 @@
                                         -ms-border-radius: 50%;
                                         -o-border-radius: 50%;
                                     }
-                                    .short-info{
+                                    .short-info {
                                         display: grid;
                                         grid-template-rows: 1fr 1fr;
                                         grid-template-areas: "username" "major";
-                                        .username{
+                                        .username {
                                             grid-area: username;
-                                            color: #343A40;
+                                            color: #343a40;
                                             margin: 0px;
                                             margin-top: 10px;
 
-                                            .join-date{
+                                            .join-date {
                                                 grid-area: join-date;
-                                                color: #6C757D;
+                                                color: #6c757d;
                                                 font-size: 14px;
                                                 margin: 0px;
                                                 margin-top: 10px;
                                             }
                                         }
 
-                                        .major{
+                                        .major {
                                             grid-area: major;
-                                            color: #6C757D;
+                                            color: #6c757d;
                                             font-size: 14px;
                                             margin: 0px;
                                             margin-top: 10px;
                                             margin-right: 10px;
 
-                                            a{
+                                            a {
                                                 text-decoration: none;
-                                                color: #007BFF;                                        ;
+                                                color: #007bff;
                                             }
                                         }
                                     } // ! short-info
                                 } // ! profile-info
                             } // ! profile
-                            .question{
+                            .question {
                                 grid-area: question;
                                 margin-left: 10px;
                             }
                         } // ! posted
-                        .approval{
+                        .approval {
                             grid-area: approval;
                             display: grid;
                             grid-template-columns: 1fr 1fr;
                             grid-template-areas: "ap-de ap-du";
-                            .delete{
+                            .delete {
                                 grid-area: ap-de;
-                                color: #DC3545;
+                                color: #dc3545;
                                 padding-left: 10px;
-                                border: 1px solid #CED4DA;
+                                border: 1px solid #ced4da;
                                 // height: 42px;
-                                p{
+                                p {
                                     margin-top: 8px;
                                     margin-bottom: 8px;
                                 }
                             }
-                            .duplicate{
+                            .duplicate {
                                 grid-area: ap-du;
-                                color: #007BFF;
-                                border: 1px solid #007BFF;
+                                color: #007bff;
+                                border: 1px solid #007bff;
                                 padding-left: 10px;
-                                p{
+                                p {
                                     margin-top: 8px;
                                     margin-bottom: 8px;
                                 }
@@ -409,11 +400,7 @@
                         }
                     } // ! user-question
                 } // ! activities
-
-
             } // ! admin
-
         } // ! admin-activities
-
     } // ! main
 } //! content

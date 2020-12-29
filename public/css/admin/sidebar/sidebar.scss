@@ -1,0 +1,74 @@
+.side-bar {
+    background-color: #343A40;
+    grid-area: side-bar;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-rows: auto 48px;
+    grid-template-areas: "bar" "version";
+    .bar{
+        grid-area: bar;
+        .list{
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+            .link-active{
+                background-color: #007BFF;
+            }
+            .administrator{
+                background: rgba(255, 255, 255, 0.3);
+            }
+            .admin-active{
+                background: rgba(255, 255, 255, 0.1);
+
+            }
+            .list-item{
+                height: 48px;
+                display: flex;
+                align-items: center;
+                color: #ffffff;
+                transition: all .3s ease;
+                .out{
+                    position: absolute;
+                    right: 5px;
+                    background-color: #DC3545;
+                    font-size: 14px;
+                    border: 1px solid #DC3545;
+                    padding: 8px 22px;
+                    border-radius: 30px;
+                    -webkit-border-radius: 30px;
+                    -moz-border-radius: 30px;
+                    -ms-border-radius: 30px;
+                    -o-border-radius: 30px;
+                    color: #ffffff;
+                    cursor: pointer;
+                }
+                .link{
+                    padding-left: 20px;
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+
+            } // ! list-item
+            .list-item:hover {
+                background-color: transparent;
+                background-color: #ffffff80;
+                transition: all .3s ease;
+                .link {
+                    color: #000000;
+                }
+            }
+        } // ! list
+    }
+    .version{
+        grid-area: version;
+        height: 48px;
+        background-color: #FFFFFF;
+        color: #343A40;
+        p{
+            margin-left: 20px;
+
+        }
+    }
+} // ! side-bar
