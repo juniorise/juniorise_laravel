@@ -6,7 +6,7 @@
         <div class="col-xl-3 col-lg-3 category">
             <div class="card">
             <div class="card-header">Choose your desire major</div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush"> 
                     @if (request()->is('recentshare/computer-science'))
                         <li class="list-group-item bg-primary"><a class="text-white" href="{{ route('recentshare') }}/computer-science">Computer Science</a></li>
                         <li class="list-group-item"><a class="text-secondary" href="{{ route('recentshare') }}/network-telecom">Network & Telecom</a></li>
@@ -46,17 +46,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-area">
-                    <textarea class="w-100 border-top-0 border-bottom-0 border" placeholder="Ask a question..!" name="" id="" cols="30" rows="10"></textarea>
-                </div>
-                <div class="publish-container w-100 d-flex justify-content-between border">
-                    <span class="align-self-center">
-                        <a class="privacy text-primary text-decoration-none" href="#"><i class="fas fa-globe-asia mx-2"></i>Everyone can answer</a>
-                    </span>
-                    <div class="btn btn-primary rounded-0">
-                            <a class="text-white text-decoration-none" href="#">Publish</a>
+                <form action="">
+                    <div class="text-area">
+                        <textarea class="w-100 border-top-0 border-bottom-0 border" placeholder="Ask a question..!" name="" id="" cols="30" rows="10"></textarea>
                     </div>
-                </div>
+                    <div class="publish-container w-100 d-flex justify-content-between border">
+                        <span class="align-self-center">
+                            <span class="privacy text-secondary text-decoration-none" href="#"><i class="fas fa-globe-asia mx-2"></i>Everyone can answer</span>
+                        </span>
+                        <input type="submit" class="btn btn-primary rounded-0 text-white text-decoration-none" name="publish" value="Publish">
+                    </div>
+                </form>
             </div>
             <div class="tab-menu w-100 d-flex justify-content-around mt-2">
                 <a class="btn border {{ request()->is('recentshare*') ? 'border-primary text-primary' : 'text-secondary' }} " href="/recentshare">Recent shared</a>

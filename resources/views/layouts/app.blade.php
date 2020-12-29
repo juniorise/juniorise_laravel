@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <style>
@@ -70,7 +70,7 @@
         </main>
         @include('layouts.footer')
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('js/emoji-toggle.js') }}"/>
     <script>
         $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
 
@@ -89,6 +89,7 @@
             });
         }
 
+        
     </script>
 </body>
 
