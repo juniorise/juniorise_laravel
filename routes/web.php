@@ -16,11 +16,13 @@ Route::get('/errors', [Errors::class,'index'])->name('errors');
 
 //Panha
 Route::prefix('/')->group(function () {
-    Route::get('recentshare', [RecentShare::class,'index'])->name('recentshare');
-    Route::get('recentshare/{category}',[RecentShare::class,'show'])->middleware('category_type');
-    Route::get('answers/{id}', [Answer::class,'show']);
-    Route::get('questions', [Question::class, 'index'])->name('questions');
-    Route::get('questions/{category}', [Question::class, 'show'])->middleware('category_type');
+    Route::get('recentshare', [RecentShare::class,'index'])->name('recentshare')->middleware('auth');
+    Route::post('recentshare',[RecentShare::class,'store']);
+    Route::get('recentshare/{category}',[RecentShare::class,'show'])->middleware('category_type','auth');
+    Route::get('answers/{id}', [Answer::class,'show'])->name('answers')->middleware('auth');
+    Route::post('answers/{id}', [Answer::class,'store'])->name('answers')->middleware('auth');
+    Route::get('questions', [Question::class, 'index'])->name('questions')->middleware('auth');
+    Route::get('questions/{category}', [Question::class, 'show'])->middleware('category_type','auth');
 });
 
 //Lyhean
