@@ -11,11 +11,15 @@ class Comment extends Model
 
     protected $table = 'post_comment';
 
+    const CREATED_AT = 'commented_at';
+
+    protected $fillable = ['post_id','commented_by','message'];
+
     public function post(){
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class,'post_id');
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'commented_by');
     }
 }

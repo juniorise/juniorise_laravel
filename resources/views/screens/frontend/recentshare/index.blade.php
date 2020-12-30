@@ -105,10 +105,10 @@
                             <div class="cmt-btn d-flex justify-content-end col-xl-6 col-lg-7 col-md-8 col-7">
                                 <div class="btn rounded-0 border border-top-0 border-bottom-0  px-1">
                                     <i class="fas fa-comment-alt mr-2" style="font-size: 14px;" aria-hidden="true"></i>
-                                    <a class="text-decoration-none text-dark" href="/answers">22 Comments</a>
+                                    <a class="text-decoration-none text-dark" href="{{ route('answers',$post->id) }}">@if ($post->comments->count() !== 0) {{ $post->comments->count() }} @endif Comments</a>
                                 </div>
                                 <div class="btn rounded-0 border border-primary text-primary px-2">
-                                    <a class="text-decoration-none " href="/answers">Read Answer</a>
+                                    <a class="text-decoration-none " href="{{ route('answers',$post->id) }}">Read Answer</a>
                                 </div>
                             </div>
                         </div>
