@@ -95,12 +95,11 @@
                     <div class="reaction-cmt border border-left-0 border-bottom-0 border-right-0 w-100">
                         <div class="row">
                             <div class="emoji d-flex col-xl-6 col-lg-5 col-md-4 col-5">
-                                <div class="btn p-0 emoji-reaction d-flex justify-content-around align-self-center mx-1">
-                                    <span class="heart emoji-icon align-self-center text-black">❤️ 10</span>
+                                @foreach(App\Models\React::getAmountReact($post->id) as $react)
+                                <div class="btn p-0 emoji-reaction d-flex justify-content-around align-self-center mx-1" style="cursor:auto">
+                                    <span class=" emoji-icon align-self-center text-black">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
                                 </div>
-                                <div class="btn p-0 emoji-reaction d-flex justify-content-around align-self-center mx-1">
-                                    <span class="heart emoji-icon align-self-center text-black">👏 22</span>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="cmt-btn d-flex justify-content-end col-xl-6 col-lg-7 col-md-8 col-7">
                                 <div class="btn rounded-0 border border-top-0 border-bottom-0  px-1">

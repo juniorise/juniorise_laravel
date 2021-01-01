@@ -11,6 +11,6 @@ class ReactEmoji extends Model
     protected $table = 'reaction_emoji';
 
     public function reacts(){
-        return $this->belongsToMany(Post::class,'react');
+        return $this->hasMany(React::class);
     }
 }

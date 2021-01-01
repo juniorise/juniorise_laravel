@@ -32,8 +32,8 @@
                         <img src="{{ asset('assets/recentshare/profile.png') }}" alt="" class="profile-pic mr-2 rounded-circle">
                         <div class="profile-info d-flex flex-column">
                             <span>
-                                <span class="name text-black text-bold">Sok San</span>
-                                <span class="date text-secondary">01 Dec 2020</span>
+                                <span class="name text-black text-bold">{{ $post->user->first_name }} {{ $post->user->last_name }}</span>
+                                <span class="date text-secondary">{{ $post->posted_at->diffForHumans() }}</span>
                             </span>
                             <span>
                                 <span class="major text-secondary">Ba, Computer Science at</span>
@@ -51,20 +51,28 @@
                     <div class="d-flex border-top">
                         <span class="emoji-box btn border-right rounded-0">
                             <div class="emoji-picker" style="margin-bottom:-45px;">
-                                <form action="">
+                                <form action="{{ route('answers.like',$post->id) }}" method="POST">
+                                    @csrf
                                     <div class="d-flex justify-content-around align-items-center">
-                                        <button class=" border-0">👍</button>
-                                        <button class=" border-0">👎</button>
-                                        <button class=" border-0">❤️</button>
-                                        <button class=" border-0" >👏</button>
+                                        <input type="submit" class="bg-transparent border-0" name="emoji" value="👍">
+                                        <input type="submit" class="bg-transparent border-0" name="emoji" value="👎">
+                                        <input type="submit" class="bg-transparent border-0" name="emoji" value="❤️">
+                                        <input type="submit" class="bg-transparent border-0" name="emoji" value="👏">
                                     </div>
                                 </form>
                             </div>
                             <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
                         </span>
-                        <span class="reaction-emoji btn border-right rounded-0">❤️ 10</span>
-                        <span class="reaction-emoji btn border-right rounded-0">👏 22</span>
-                        <span class="reaction-emoji btn border-right rounded-0">👍 22</span>
+                        <form class="d-flex" action="{{ route('answers.like',$post->id) }}" method="POST">
+                            @csrf  
+                            @foreach($reacts as $react)
+                                @if( App\Models\React::where('user_id',Auth::user()->id)->exists() && $react->reactEmoji->id ===  (App\Models\React::select('reactionEmoji')->where('user_id',Auth::user()->id)->first()->reactionEmoji))
+                                    <input class="reaction-emoji bg-primary btn border-right rounded-0" type="submit" name="emoji" value="{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}">
+                                @else
+                                    <span class="reaction-emoji btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
+                                @endif
+                            @endforeach
+                        </form>
                     </div>
                 </div>
             </div>
