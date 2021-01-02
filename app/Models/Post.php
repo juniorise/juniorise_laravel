@@ -28,6 +28,6 @@ class Post extends Model
     }
 
     public function reacts(){
-        return $this->belongsToMany(ReactEmoji::class,'react');
+        return $this->hasMany(React::class,'post_id');
     }
 }

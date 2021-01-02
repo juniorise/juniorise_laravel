@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="emoji d-flex col-xl-6 col-lg-5 col-md-4 col-5">
                             <div class="btn p-0 emoji-reaction d-flex justify-content-around align-self-center mx-1">
-                                <span class="heart emoji-icon align-self-center text-black">❤️ 10</span>
+                                <span class="heart emoji-icon align-self-center text-black"> 10</span>
                             </div>
                             <div class="btn p-0 emoji-reaction d-flex justify-content-around align-self-center mx-1">
                                 <span class="heart emoji-icon align-self-center text-black">👏 22</span>
