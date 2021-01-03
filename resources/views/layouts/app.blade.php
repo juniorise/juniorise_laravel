@@ -70,7 +70,7 @@
         </main>
         @include('layouts.footer')
     </div>
-    <script src="{{ asset('js/emoji-toggle.js') }}"/>
+    <script src="{{ asset('js/emoji-toggle.js') }}"></script>
     <script>
         $('body').css('padding-top', $('.navbar').outerHeight() + 'px')
 

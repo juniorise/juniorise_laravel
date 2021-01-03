@@ -2,7 +2,6 @@
   display: -ms-grid;
   display: grid;
   height: auto;
-  font-family: "Ubuntu";
   -ms-grid-columns: 20% 20% 20% 20% 20%;
       grid-template-columns: 20% 20% 20% 20% 20%;
       grid-template-areas: "side-bar main main main main";
@@ -28,22 +27,9 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: user-container;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: auto auto auto auto;
-      grid-template-rows: auto auto auto auto;
-      grid-template-areas: "title" "search-bar" "user-list" "more-recent";
-}
-
-.content-user-account .main .user-container .title {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: title;
 }
 
 .content-user-account .main .user-container .search-bar {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: search-bar;
   margin-bottom: 10px;
 }
@@ -56,18 +42,14 @@
 
 .content-user-account .main .user-container .search-bar form input::-webkit-input-placeholder {
   font-size: 16px;
-  font-family: "Ubuntu";
 }
 
 .content-user-account .main .user-container .search-bar form input[type="text"] {
   font-size: 16px;
-  font-family: "Ubuntu";
   padding-left: 20px;
 }
 
 .content-user-account .main .user-container .user-list {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
   grid-area: user-list;
   margin-bottom: 10px;
 }
@@ -96,16 +78,18 @@
   margin-bottom: 10px;
 }
 
-.content-user-account .main .user-container .user-list .list .profile-info img {
-  margin-bottom: 10px;
+.content-user-account .main .user-container .user-list .list .profile-info .img {
   width: 48px;
   height: 48px;
   margin: 10px 10px 0px 10px;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  overflow: hidden;
+}
+
+.content-user-account .main .user-container .user-list .list .profile-info .img img {
+  height: 48px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .content-user-account .main .user-container .user-list .list .profile-info .short-info {
@@ -180,8 +164,6 @@
 }
 
 .content-user-account .main .user-container .see-more {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
   grid-area: more-recent;
   color: #007BFF;
   text-align: center;
@@ -196,72 +178,5 @@
   position: sticky;
   height: 100vh;
   top: 10px;
-}
-
-.content-user-account .main .small-detail .mini-profile {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 142px 48px auto;
-      grid-template-rows: 142px 48px auto;
-      grid-template-areas: "image" "popular" "detail";
-}
-
-.content-user-account .main .small-detail .mini-profile .image {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: image;
-}
-
-.content-user-account .main .small-detail .mini-profile .image img {
-  width: 253px;
-  height: 142px;
-}
-
-.content-user-account .main .small-detail .mini-profile .popular {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: popular;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.03)), to(rgba(0, 0, 0, 0.03))), #FFFFFF;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), #FFFFFF;
-  border: 1px solid #DFDFDF;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.content-user-account .main .small-detail .mini-profile .popular p {
-  margin-left: 20px;
-}
-
-.content-user-account .main .small-detail .mini-profile .detail {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: detail;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 30px;
-  border: 1px solid #DFDFDF;
-}
-
-.content-user-account .main .small-detail .mini-profile .detail .username .user-name {
-  font-weight: 500;
-  font-size: 20px;
-  margin-bottom: 0px;
-}
-
-.content-user-account .main .small-detail .mini-profile .detail .username .major {
-  color: #6C757D;
-  margin-top: 5px;
-}
-
-.content-user-account .main .small-detail .mini-profile .detail .edit-profile a {
-  text-decoration: none;
-  background: #007BFF;
-  border: 1px solid #007BFF;
-  color: #ffffff;
-  padding: 6px 12px;
 }
 /*# sourceMappingURL=user.account.css.map */
