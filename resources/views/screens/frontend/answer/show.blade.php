@@ -97,7 +97,7 @@
                         <div class="alert alert-danger mb-0 rounded-0">{{ $message }}</div>
                     @enderror
                 @endif
-                <form action="{{ route('answers',$post->id) }}" method="POST">
+                <form action="{{ route('answers.comment',$post->id) }}" method="POST">
                     @csrf
                     <div class="text-area">
                         <textarea class="w-100 border-top-0 border-bottom-0 border" placeholder="Answer a question..." name="comment_content" id="comment_content" cols="30" rows="10"></textarea>
