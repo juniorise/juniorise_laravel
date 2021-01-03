@@ -16,7 +16,6 @@ class RecentShare extends Controller
         $categories = Category::all();
         $reacts = React::select('post_id','reactionEmoji',DB::raw("COUNT(reactAmount) as reactAmount"))->groupBy('post_id','reactionEmoji')->get();
         $posts = Post::latest()->take(5)->withCount('reacts')->get();
-
         return view('screens.frontend.recentshare.index')->with('categories',$categories)->with('posts',$posts)->with('reacts',$reacts);
     }
 
