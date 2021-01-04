@@ -1,7 +1,8 @@
 ## Run this start a project
 1. and execute `composer install`
-2. and `composer require doctrine/dbal`
-3. then run project `php artisan serve`
+2. rename column `composer require doctrine/dbal`
+3. load database data `php artisan db:seed`
+4. then run project `php artisan serve`
 
 if there is any problem then delete "/vendor" folder, and run above command again.
 
