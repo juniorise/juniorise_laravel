@@ -1,14 +1,13 @@
 @extends('layouts.admin')
-
 @section('content')
 <div class="content-user-account">
     <div class="side-bar">
         <div class="bar">
             <ul class="list">
-                <li class="list-item"><a class="link" href="dashboard">Dashboard</a></li>
-                <li class="list-item"><a class="link" href="manage-post">Manage Post</a></li>
-                <li class="list-item link-active"><a class="link" href="user-account">User Account</a></li>
-                <li class="list-item"><a class="link" href="query-select">Query Select</a></li>
+                <li class="list-item"><a class="link" href="/admin/dashboard">Dashboard</a></li>
+                <li class="list-item"><a class="link" href="/admin/manage-post">Manage Post</a></li>
+                <li class="list-item link-active"><a class="link" href="/admin/user-account">User Account</a></li>
+                <li class="list-item"><a class="link" href="/admin/query-select">Query Select</a></li>
             </ul> <!--! list-->
         </div> <!--! bar-->
         <div class="version">
@@ -20,207 +19,65 @@
         <div class="user-container">
             <p class="title">All user list</p>
             <div class="search-bar">
-                <form action="">
-                    <input type="text" placeholder="Search user">
+                <form method="GET" action="/admin/user-account/search" role="search">
+                    @csrf
+                    <input type="text" placeholder="Search user" name="keyword" value="{{ old('keyword') }}">
+                    <button type="submit" class="btn btn-primary rounded-0 mt-2">Search</button>
                 </form>
             </div> <!--!search-button-->
+            @if(isset($users) AND count($users) > 0)
             <div class="user-list">
-                <!-- TODO to use more copy whole div with class "list" -->
+                @foreach ($users as $user)
                 <div class="list">
                     <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
+                        <div class="img">
+                            <img src="{{ isset($user->profilePath) ? $user->profilePath : asset('/assets/recentshare/profile.png') }}" alt="profile">
+                        </div>
                         <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
+                            <p class="username">{{ $user->first_name." ".$user->last_name }}<span class="modify-date"> -  Update at {{ $user->updated_at }}</span></p>
+                            <p class="major">{{ $user->major }} <a href="#"></a></p>
                         </div> <!--! short-info-->
                     </div> <!--! profile-info-->
                     <div class="view-profile">
-                        <a href="#">View profile</a>
+                        <a href="/admin/user-account/{{$user->id}}">View profile</a>
                     </div>
                 </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-                <!-- TODO to use more copy whole div with class "list" -->
-                <div class="list">
-                    <div class="profile-info">
-                        <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="profile">
-                        <div class="short-info">
-                            <p class="username">Sok san <span class="modify-date"> - 1 Dec 2020</span></p>
-                            <p class="major">BA. Computer Science at <a href="#">NIPTICT</a></p>
-                        </div> <!--! short-info-->
-                    </div> <!--! profile-info-->
-                    <div class="view-profile">
-                        <a href="#">View profile</a>
-                    </div>
-                </div> <!--! list-->
-
+                @endforeach
             </div> <!--! user-list-->
-            <p class="see-more">Load more</p>
+            @endif
         </div> <!--! user-container-->
+        @if(isset($current_user) AND $current_user != null)
+        @php
+            $_profilePath = isset($current_user->profilePath) ? $current_user->profilePath : asset('/assets/recentshare/profile.png');
+            $_reputation = isset($current_user->reputation) ? $current_user->reputation : 0;
+            $_first_name = isset($current_user->first_name) ? $current_user->first_name : "";
+            $_last_name = isset($current_user->last_name) ? $current_user->last_name : "";
+            $_email = isset($current_user->email) ? $current_user->email : "No email is provided";
+            $_gender = isset($current_user->gender) ? $current_user->gender : "Unknown";
+            $_major = isset($current_user->major) ? $current_user->major : "Unknown major";
+            $_description = isset($current_user->description) ? $current_user->description : "No description provide";
+            $_school = isset($current_user->school) ? $current_user->school : "Unknown school";
+            $_update_at = isset($current_user->update_at) ? $current_user->update_at : "Unknown";
+            $_create_at = isset($current_user->create_at) ? $current_user->create_at : "Unknown";
+        @endphp
         <div class="small-detail">
-            <div class="mini-profile">
-                <div class="image">
-                    <img src="https://www.compass-insurance-agency.com/wp-content/uploads/2016/09/girl-education.jpg" alt="Profile">
-                </div> <!--! image-->
-                <div class="popular">
-                    <p><span>20k </span>Reputations</p>
+            <div class="profile-card">
+                <div class="card">
+                    <img class="card-img-top p-4" src="{{ $_profilePath }}" alt="Card image cap"/>
+                    <div class="card-header">{{ $_reputation }} reputations</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{$_first_name." ".$_last_name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $_major." at ".$_school }}</h6>
+                        <p class="card-text mb-2">{{ $_description }}</p>
+                        <p class="card-text mb-2 text-muted">Email: {{ $_email }}</p>
+                        <p class="card-text mb-2 text-muted">Gender: {{ $_gender }}</p>
+                        <p class="card-text mb-2 text-muted">Update at: {{ $_update_at }}</p>
+                        <p class="card-text mb-2 text-muted">Create at: {{ $_create_at }}</p>
+                    </div>
                 </div>
-                <div class="detail">
-                    <div class="username">
-                        <p class="user-name">Sok San</p>
-                        <p class="major">Computer Science</p>
-                    </div> <!--! username-->
-                    <div class="quote">
-                        <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div> <!--!quote-->
-                    <div class="edit-profile">
-                        <a href="#">Edit your profile</a>
-                    </div> <!--! edit-profile-->
-                </div> <!--! detail-->
             </div>
         </div> <!--! small-detail-->
+        @endif
     </div> <!--! main-->
 </div> <!--! content-user-account-->
-
 @endsection

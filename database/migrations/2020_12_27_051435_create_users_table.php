@@ -24,9 +24,10 @@ class CreateUsersTable extends Migration
                 $table->string('major',100)->nullable();
                 $table->string('phone',10)->nullable();
                 $table->string('profilePath',400)->nullable();
-                $table->timestamp('description')->nullable();
-                $table->timestamp('gender')->nullable();
-                $table->timestamp('reputation');
+                $table->string('description')->nullable();
+                $table->string('school')->nullable();
+                $table->enum('gender',['Male','Female'])->nullable();
+                $table->integer('reputation');
                 $table->timestamp('created_at')->nullable();
                 $table->timestamp('updated_at')->nullable();
             });

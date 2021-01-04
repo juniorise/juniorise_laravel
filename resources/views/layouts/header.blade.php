@@ -1,4 +1,4 @@
-<div class="header container-fluid bg-dark px-0 navbar smart-scroll">
+<div class="header container-fluid bg-dark px-0 navbar smart-scroll p-0">
     <div class="row w-100">
         <div class="col-xl-8 col-lg-9 col-md-8 col-6 d-flex">
             <div class="logo col-auto mx-3 align-self-center position-relative">

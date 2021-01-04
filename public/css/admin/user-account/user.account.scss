@@ -1,7 +1,6 @@
 .content-user-account {
     display: grid;
     height: auto;
-    font-family: "Ubuntu";
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-areas: "side-bar main main main main";
     .main {
@@ -14,12 +13,6 @@
         margin-bottom: 0px;
         .user-container{
             grid-area: user-container;
-            display: grid;
-            grid-template-rows: auto auto auto auto;
-            grid-template-areas: "title" "search-bar" "user-list" "more-recent";
-            .title{
-                grid-area: title;
-            }
             .search-bar{
                 grid-area: search-bar;
                 margin-bottom: 10px;
@@ -32,11 +25,9 @@
                     }
                     input::-webkit-input-placeholder {
                         font-size: 16px;
-                        font-family: "Ubuntu";
                     }
                     input[type="text"] {
                         font-size: 16px;
-                        font-family: "Ubuntu";
                         padding-left: 20px;
                     }
 
@@ -56,16 +47,16 @@
                         display: flex;
                         flex-grow: 2;
                         margin-bottom: 10px;
-                        img{
-                            margin-bottom: 10px;
+                        .img{
                             width: 48px;
                             height: 48px;
                             margin: 10px 10px 0px 10px;
                             border-radius: 50%;
-                            -webkit-border-radius: 50%;
-                            -moz-border-radius: 50%;
-                            -ms-border-radius: 50%;
-                            -o-border-radius: 50%;
+                            overflow: hidden;
+                            img{
+                                height: 48px;
+                                object-fit: cover;
+                            }
                         }
                         .short-info{
                             display: grid;
@@ -134,59 +125,6 @@
             position: sticky;
             height: 100vh;
             top: 10px;
-            .mini-profile{
-                display: grid;
-                grid-template-rows: 142px 48px auto;
-                grid-template-areas: "image" "popular" "detail";
-
-                .image{
-                    grid-area: image;
-                    img{
-                        width: 253px;
-                        height: 142px;
-                    }
-                }
-                .popular{
-                    grid-area: popular;
-                    background: linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)), #FFFFFF;
-                    border: 1px solid #DFDFDF;
-                    display: flex;
-                    // justify-content: center;
-                    align-items: center;
-                    p{
-                        margin-left: 20px;
-                    }
-                }
-                .detail{
-                    grid-area: detail;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    padding-bottom: 30px;
-                    border: 1px solid #DFDFDF;
-                    .username{
-                        .user-name{
-                            font-weight: 500;
-                            font-size: 20px;
-                            margin-bottom: 0px;
-                        }
-                        .major{
-                            color: #6C757D;
-                            margin-top: 5px;
-                        }
-                    }
-                    // .quote{}
-                    .edit-profile{
-                        a{
-                            text-decoration: none;
-                            background: #007BFF;
-                            border: 1px solid #007BFF;
-                            color: #ffffff;
-                            padding: 6px 12px;
-
-                        }
-                    }
-                } // ! detail
-            } // ! mini-profile
         } // ! small-detail
 
     } // ! main

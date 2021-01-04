@@ -6,15 +6,16 @@ use App\Http\Controllers\RecentShare;
 use App\Http\Controllers\Question;
 use App\Http\Controllers\Answer;
 use App\Http\Controllers\Errors;
+use App\Models\User;
 
-//Thea
+//Home
 Route::get('/', function () {
     return view('screens/home/home');
 });
 
 Route::get('/errors', [Errors::class,'index'])->name('errors');
 
-//Panha
+//Frontend
 Route::prefix('/')->group(function () {
     Route::get('recentshare', [RecentShare::class,'index'])->name('recentshare')->middleware('auth');
     Route::post('recentshare',[RecentShare::class,'store']);
@@ -26,23 +27,50 @@ Route::prefix('/')->group(function () {
     Route::get('questions/{category}', [Question::class, 'show'])->middleware('category_type','auth');
 });
 
-//Lyhean
+//Backend
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('screens/admin/dashboard');
     });
+    
     Route::get('/manage-post', function () {
         return view('screens/admin/managepost');
     });
-    Route::get('/user-account', function () {
-        return view('screens/admin/usersaccount');
+
+    Route::get('/user-account/{uid}', function () {
+        $users = User::all();
+        $user = $users->firstWhere('id', request()->uid);
+        if(isset($user)){
+            return view('screens/admin/usersaccount', ['users' => $users, 'current_user' => $user]);
+        } else
+            return view('screens/admin/usersaccount', ['users' => $users]);
     });
+
+    Route::get('/user-account', function () {
+        return redirect('admin/user-account/1');
+    });
+
+    //TODO: search functionality not yet work.
+    Route::any('/user-account/search', function () {
+        $keyword = Input::get ('keyword');
+        $users = User::where('email', 'like', '%'.$keyword.'%')
+        ->orWhere('first_name', 'like', '%'.$keyword.'%')
+        ->orWhere('last_name', 'like', '%'.$keyword.'%')
+        ->orWhere('role', 'like', '%'.$keyword.'%')
+        ->orWhere('major', 'like', '%'.$keyword.'%')
+        ->orWhere('phone', 'like', '%'.$keyword.'%')
+        ->orWhere('description', 'like', '%'.$keyword.'%')
+        ->orWhere('reputation', 'like', '%'.$keyword.'%')
+        ->orWhere('id', 'like', '%'.$keyword.'%')
+        ->get();
+        return view('screens/admin/usersaccount', ['users' => $users]);
+    });
+
     Route::get('/query-select', function () {
         return view('screens/admin/queryselect');
     });
 });
 
-Route::get('/on', 'YourController@callMeDirectlyFromUrl');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
