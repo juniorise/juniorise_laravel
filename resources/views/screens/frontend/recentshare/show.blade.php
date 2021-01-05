@@ -32,6 +32,7 @@
                         <div class="profile-info d-flex flex-column">
                             <span>
                                 <span class="name text-black text-bold">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
+<<<<<<< HEAD
                             </span>
                             <span>
                                 <span class="major text-secondary">Ba, {{ Auth::user()->major }} at </span>
@@ -40,6 +41,13 @@
                                 @else
                                     <a class="school text-primary" href="#">UNKNOWN</a>
                                 @endif
+=======
+                                <span class="date text-secondary"> - 01 Dec 2020</span>
+                            </span>
+                            <span>
+                                <span class="major text-secondary">Ba, {{ Auth::user()->major }} at </span>
+                                <a class="school text-primary" href="#">NIPTICT</a>
+>>>>>>> 06e81aa (close #43 backend db and manage post)
                             </span>
                         </div>
                     </div>
@@ -74,23 +82,32 @@
                 <div class="share-post-container border mt-3">
                     <div class="profile-container p-3">
                         <div class="profile d-flex">
+<<<<<<< HEAD
                             @if($post->user->profilePath !== null AND \File::exists($post->user->profilePath))
                                 <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $post->user->profilePath }}" alt=""/>
                             @else
                                 <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
                             @endif
+=======
+                            <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+>>>>>>> 06e81aa (close #43 backend db and manage post)
                             <div class="profile-info d-flex flex-column">
                                 <span>
                                     <span class="name text-black text-bold">{{ $post->user->first_name }} {{ $post->user->last_name }}</span>
                                     <span class="date text-secondary"> - {{ $post->posted_at->diffForHumans() }}</span>
                                 </span>
                                 <span>
+<<<<<<< HEAD
                                     <span class="major text-secondary">{{ $post->user->major }} at </span>
                                     @if($post->user->school != null)
                                         <a class="school text-primary" href="#">{{ $post->user->school }}</a>
                                     @else
                                         <a class="school text-primary" href="#">UNKNOWN</a>
                                     @endif
+=======
+                                    <span class="major text-secondary">Ba, {{ $post->user->major }} at </span>
+                                    <a class="school text-primary" href="#">NIPTICT</a>
+>>>>>>> 06e81aa (close #43 backend db and manage post)
                                 </span>
                             </div>
                         </div>
@@ -107,7 +124,11 @@
                                         @foreach(App\Models\React::getAmountReact($post->id) as $react)
                                             <span class="btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
                                         @endforeach
+<<<<<<< HEAD
                                     </div>
+=======
+                                    </div> 
+>>>>>>> 06e81aa (close #43 backend db and manage post)
                                 </div>
                             </div>
                             <div class="cmt-btn d-flex justify-content-end col-xl-6 col-lg-7 col-md-8 col-7">
