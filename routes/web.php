@@ -22,7 +22,8 @@ Route::prefix('/')->group(function () {
     Route::get('recentshare/{category}',[RecentShare::class,'show'])->middleware('category_type','auth');
     Route::get('answers/{id}', [Answer::class,'show'])->name('answers')->middleware('auth');
     Route::post('answers/comment/{id}', [Answer::class,'store'])->name('answers.comment')->middleware('auth');
-    Route::post('answers/like/{id}', [Answer::class,'like'])->name('answers.like')->middleware('auth');
+    Route::post('answers/like/post/{id}', [Answer::class,'likePost'])->name('answers.likePost')->middleware('auth');
+    Route::post('answers/like/comment/{id}', [Answer::class,'likeComment'])->name('answers.likeComment')->middleware('auth');
 });
 
 //Backend

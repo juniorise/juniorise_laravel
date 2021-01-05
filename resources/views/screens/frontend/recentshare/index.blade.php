@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="cmt-btn d-flex justify-content-end col-xl-6 col-lg-7 col-md-8 col-7">
-                                <div class="btn rounded-0 border border-top-0 border-bottom-0  px-2">
+                                <div class="btn rounded-0 border border-top-0 border-bottom-0  px-2 d-flex align-items-center">
                                     <a class="text-decoration-none text-dark" href="{{ route('answers',$post->id) }}"><i class="fas fa-comment-alt mr-2" style="font-size: 14px;" aria-hidden="true"></i>@if ($post->comments->count() !== 0) {{ $post->comments->count() }} @endif</a>
                                 </div>
                                 <div class="btn rounded-0 border border-primary text-primary px-2">
