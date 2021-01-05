@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-xl mt-4 pt-4">
+<div class="container-xl pt-4">
     @if ($message = Session::get('success'))
         <div class="alert alert-success text-center">
             <p class="mb-0">{{ $message }}</p>
@@ -26,6 +26,9 @@
             </div>
         </div>
         <div class="col-xl-6 col-lg-6 mb-3">
+            <!-- <div class="container border d-flex align-items-center py-3 mb-2">
+                <div><span class="text-primary">Answer to </span>{{ $post->message }}</div>
+            </div> -->
             <div class="question-content-container border mb-3">
                 <div class="profile-container d-flex w-100 p-3 mb-3">
                     <div class="profile d-flex">

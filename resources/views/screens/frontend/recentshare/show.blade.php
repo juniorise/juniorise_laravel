@@ -48,10 +48,6 @@
                     </div>
                 </form>
             </div>
-            <div class="tab-menu w-100 d-flex justify-content-around mt-2">
-                <a class="btn border {{ request()->is('recentshare*') ? 'border-primary text-primary' : 'text-secondary' }} " href="/recentshare">Recent shared</a>
-                <a class="btn border  {{ request()->is('questions*') ? 'border-primary text-primary' : 'text-secondary' }}   " href="/questions">Questions</a>
-            </div>
             <div class="share-post-container border mt-3">
                 <div class="profile-container p-3">
                     <div class="profile d-flex">

@@ -23,8 +23,6 @@ Route::prefix('/')->group(function () {
     Route::get('answers/{id}', [Answer::class,'show'])->name('answers')->middleware('auth');
     Route::post('answers/comment/{id}', [Answer::class,'store'])->name('answers.comment')->middleware('auth');
     Route::post('answers/like/{id}', [Answer::class,'like'])->name('answers.like')->middleware('auth');
-    Route::get('questions', [Question::class, 'index'])->name('questions')->middleware('auth');
-    Route::get('questions/{category}', [Question::class, 'show'])->middleware('category_type','auth');
 });
 
 //Backend
