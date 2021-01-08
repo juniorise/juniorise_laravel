@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryType
 {
-    protected $allowedTypes = ['computer-science','network-telecom','architecture','cvil-engineer','doctor','biology-engineer'];
+    protected $allowedTypes = ['computer-science','network-telecom','architecture','civil-engineer','doctor','biology-engineer'];
     /**
      * Handle an incoming request.
      *

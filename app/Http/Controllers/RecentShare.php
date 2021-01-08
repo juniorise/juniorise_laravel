@@ -15,7 +15,7 @@ class RecentShare extends Controller
     public function index(){
         $categories = Category::all();
         $reacts = React::select('post_id','reactionEmoji',DB::raw("COUNT(reactAmount) as reactAmount"))->groupBy('post_id','reactionEmoji')->get();
-        $posts = Post::latest()->take(5)->withCount('reacts')->get();
+        $posts = Post::latest()->withCount('reacts')->get();
         return view('screens.frontend.recentshare.index')->with('categories',$categories)->with('posts',$posts)->with('reacts',$reacts);
     }
 
@@ -34,7 +34,24 @@ class RecentShare extends Controller
     }
 
     public function show($category){
-        return view('screens.frontend.recentshare.show');
+        $id;
+        if($category === 'computer-science'){
+            $id = 1;
+        }else if($category === 'network-telecom'){
+            $id = 2;
+        }else if($category === 'architecture'){
+            $id = 3;
+        }else if($category === 'civil-engineer'){
+            $id = 4;
+        }else if($category === 'doctor'){
+            $id = 5;
+        }else if($category === 'biology-engineer'){
+            $id = 6;
+        }
+        $categories = Category::all();
+        $posts = Post::where('category_id',$id)->get();
+        $reacts = React::select('post_id','reactionEmoji',DB::raw("COUNT(reactAmount) as reactAmount"))->groupBy('post_id','reactionEmoji')->get();
+        return view('screens.frontend.recentshare.show')->with('categories',$categories)->with('posts',$posts)->with('reacts',$reacts);
     }
 
     

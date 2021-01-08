@@ -12,12 +12,50 @@
             <div class="card">
             <div class="card-header">Choose your desire major</div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item category  bg-primary text-white">Computer Science</li>
-                    <li class="list-group-item category ">Network & Telecom</li>
-                    <li class="list-group-item category ">Architecture</li>
-                    <li class="list-group-item category ">Civil Engineer</li>
-                    <li class="list-group-item category ">Doctor</li>
-                    <li class="list-group-item category ">Biology Engineering</li>
+                    @if($post->category_id === 1)
+                        <li class="list-group-item category bg-primary text-white">Computer Science</li>
+                        <li class="list-group-item category">Network & Telecom</li>
+                        <li class="list-group-item category">Architecture</li>
+                        <li class="list-group-item category">Civil Engineer</li>
+                        <li class="list-group-item category">Doctor</li>
+                        <li class="list-group-item category">Biology Engineering</li>
+                    @elseif($post->category_id === 2)
+                        <li class="list-group-item category">Computer Science</li>
+                        <li class="list-group-item category bg-primary text-white">Network & Telecom</li>
+                        <li class="list-group-item category">Architecture</li>
+                        <li class="list-group-item category">Civil Engineer</li>
+                        <li class="list-group-item category">Doctor</li>
+                        <li class="list-group-item category">Biology Engineering</li>
+                    @elseif($post->category_id === 3)
+                        <li class="list-group-item category">Computer Science</li>
+                        <li class="list-group-item category">Network & Telecom</li>
+                        <li class="list-group-item category bg-primary text-white">Architecture</li>
+                        <li class="list-group-item category">Civil Engineer</li>
+                        <li class="list-group-item category">Doctor</li>
+                        <li class="list-group-item category">Biology Engineering</li>
+                    @elseif($post->category_id === 4)
+                        <li class="list-group-item category">Computer Science</li>
+                        <li class="list-group-item category">Network & Telecom</li>
+                        <li class="list-group-item category">Architecture</li>
+                        <li class="list-group-item category bg-primary text-white">Civil Engineer</li>
+                        <li class="list-group-item category">Doctor</li>
+                        <li class="list-group-item category">Biology Engineering</li>
+                    @elseif($post->category_id === 5)
+                        <li class="list-group-item category">Computer Science</li>
+                        <li class="list-group-item category">Network & Telecom</li>
+                        <li class="list-group-item category">Architecture</li>
+                        <li class="list-group-item category">Civil Engineer</li>
+                        <li class="list-group-item category bg-primary text-white">Doctor</li>
+                        <li class="list-group-item category">Biology Engineering</li>
+                    @elseif($post->category_id === 6)
+                        <li class="list-group-item category">Computer Science</li>
+                        <li class="list-group-item category">Network & Telecom</li>
+                        <li class="list-group-item category">Architecture</li>
+                        <li class="list-group-item category">Civil Engineer</li>
+                        <li class="list-group-item category">Doctor</li>
+                        <li class="list-group-item category bg-primary text-white">Biology Engineering</li>
+                    @endif
+                    
                 </ul>
             </div>
             <input class="border w-100 p-2 my-3" style="outline:none;" type="text" placeholder="Search for a major"/>

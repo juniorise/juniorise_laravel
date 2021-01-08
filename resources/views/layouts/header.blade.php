@@ -2,7 +2,7 @@
     <div class="row w-100">
         <div class="col-xl-8 col-lg-9 col-md-8 col-6 d-flex">
             <div class="logo col-auto mx-3 align-self-center position-relative">
-                <a class="text-white text-center font-weight-bold" href="#">Juniorise</a>
+                <a class="text-white text-center font-weight-bold" href="/recentshare">Juniorise</a>
                 <span class="hat-icon position-absolute">
                     <i class="fas fa-graduation-cap text-white"></i>
                 </span>
