@@ -107,7 +107,7 @@
                         <form class="d-flex" action="{{ route('answers.likePost',$post->id) }}" method="POST">
                             @csrf  
                             @foreach($reacts_Post as $react_post)
-                                @if( App\Models\React::where('user_id',Auth::user()->id)->exists() && $react_post->reactEmoji->id ===  (App\Models\React::select('reactionEmoji')->where('user_id',Auth::user()->id)->first()->reactionEmoji))
+                                @if( App\Models\React::where('user_id',Auth::user()->id)->exists() && App\Models\React::existReact($react_post->reactEmoji->id,$post->id))
                                     <input class="reaction-emoji bg-primary btn border-right rounded-0" type="submit" name="emoji" value="{{ $react_post->reactEmoji->emojiImage }} {{ $react_post->reactAmount }}">
                                 @else
                                     <span class="reaction-emoji btn border-right rounded-0" style="cursor:auto;">{{ $react_post->reactEmoji->emojiImage }} {{ $react_post->reactAmount }}</span>
