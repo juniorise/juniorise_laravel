@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-xl mt-5 pt-4">
+<div class="container-xl pt-4">
     @if ($message = Session::get('success'))
         <div class="alert alert-success text-center">
             <p class="mb-0">{{ $message }}</p>
@@ -67,10 +67,6 @@
                     </div>
                 </form>
             </div>
-            <div class="tab-menu w-100 d-flex justify-content-around mt-2">
-                <a class="btn border {{ request()->is('recentshare*') ? 'border-primary text-primary' : 'text-secondary' }} " href="/recentshare">Recent shared</a>
-                <a class="btn border  {{ request()->is('questions*') ? 'border-primary text-primary' : 'text-secondary' }}   " href="/questions">Questions</a>
-            </div>
             @foreach($posts as $post)
                 <div class="share-post-container border mt-3">
                     <div class="profile-container p-3">
@@ -95,16 +91,17 @@
                     <div class="reaction-cmt border border-left-0 border-bottom-0 border-right-0 w-100">
                         <div class="row">
                             <div class="emoji d-flex col-xl-6 col-lg-5 col-md-4 col-5">
-                                @foreach(App\Models\React::getAmountReact($post->id) as $react)
-                                <div class="btn p-0 emoji-reaction d-flex justify-content-around align-self-center mx-1" style="cursor:auto">
-                                    <span class=" emoji-icon align-self-center text-black">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
+                                <div class="reaction-container">
+                                    <div class="d-flex">
+                                        @foreach(App\Models\React::getAmountReact($post->id) as $react)
+                                            <span class="btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
+                                        @endforeach
+                                    </div> 
                                 </div>
-                                @endforeach
                             </div>
                             <div class="cmt-btn d-flex justify-content-end col-xl-6 col-lg-7 col-md-8 col-7">
-                                <div class="btn rounded-0 border border-top-0 border-bottom-0  px-1">
-                                    <i class="fas fa-comment-alt mr-2" style="font-size: 14px;" aria-hidden="true"></i>
-                                    <a class="text-decoration-none text-dark" href="{{ route('answers',$post->id) }}">@if ($post->comments->count() !== 0) {{ $post->comments->count() }} @endif Comments</a>
+                                <div class="btn rounded-0 border border-top-0 border-bottom-0  px-2 d-flex align-items-center">
+                                    <a class="text-decoration-none text-dark" href="{{ route('answers',$post->id) }}"><i class="fas fa-comment-alt mr-2" style="font-size: 14px;" aria-hidden="true"></i>@if ($post->comments->count() !== 0) {{ $post->comments->count() }} @endif</a>
                                 </div>
                                 <div class="btn rounded-0 border border-primary text-primary px-2">
                                     <a class="text-decoration-none " href="{{ route('answers',$post->id) }}">Read Answer</a>

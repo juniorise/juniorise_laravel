@@ -1,4 +1,45 @@
 .reaction-comment-emoji {
-    width: 33.33%;
     font-size: 15px;
+}
+
+.emoji-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    width: 144px;
+    height: 45px;
+    padding: 5px;
+    position: relative;
+    right: 64px;
+    bottom: 52px;
+    margin-bottom: -45px;
+    margin-right: -129px;
+}
+
+.emoji-picker:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border-bottom: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+}
+
+.emoji-picker div button {
+    outline: none;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+
+@media screen and (max-width:485px){
+    .cmt-btn div a,.emoji-icon {
+        font-size: 10px;
+    }
 }

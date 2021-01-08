@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 use DB;
 
 class React extends Model
@@ -36,4 +37,5 @@ class React extends Model
     public static function getAmountReact($post_id){
         return React::select('post_id','reactionEmoji',DB::raw("COUNT(reactAmount) as reactAmount"))->where('post_id',$post_id)->groupBy('post_id','reactionEmoji')->get();
     }
+
 }

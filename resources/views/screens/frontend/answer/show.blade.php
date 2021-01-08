@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-xl mt-4 pt-4">
+<div class="container-xl pt-4">
     @if ($message = Session::get('success'))
         <div class="alert alert-success text-center">
             <p class="mb-0">{{ $message }}</p>
@@ -26,6 +26,9 @@
             </div>
         </div>
         <div class="col-xl-6 col-lg-6 mb-3">
+            <!-- <div class="container border d-flex align-items-center py-3 mb-2">
+                <div><span class="text-primary">Answer to </span>{{ $post->message }}</div>
+            </div> -->
             <div class="question-content-container border mb-3">
                 <div class="profile-container d-flex w-100 p-3 mb-3">
                     <div class="profile d-flex">
@@ -51,7 +54,7 @@
                     <div class="d-flex border-top">
                         <span class="emoji-box btn border-right rounded-0">
                             <div class="emoji-picker" style="margin-bottom:-45px;">
-                                <form action="{{ route('answers.like',$post->id) }}" method="POST">
+                                <form action="{{ route('answers.likePost',$post->id) }}" method="POST">
                                     @csrf
                                     <div class="d-flex justify-content-around align-items-center">
                                         <input type="submit" class="bg-transparent border-0" name="emoji" value="👍">
@@ -63,13 +66,13 @@
                             </div>
                             <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
                         </span>
-                        <form class="d-flex" action="{{ route('answers.like',$post->id) }}" method="POST">
+                        <form class="d-flex" action="{{ route('answers.likePost',$post->id) }}" method="POST">
                             @csrf  
-                            @foreach($reacts as $react)
-                                @if( App\Models\React::where('user_id',Auth::user()->id)->exists() && $react->reactEmoji->id ===  (App\Models\React::select('reactionEmoji')->where('user_id',Auth::user()->id)->first()->reactionEmoji))
-                                    <input class="reaction-emoji bg-primary btn border-right rounded-0" type="submit" name="emoji" value="{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}">
+                            @foreach($reacts_Post as $react_post)
+                                @if( App\Models\React::where('user_id',Auth::user()->id)->exists() && $react_post->reactEmoji->id ===  (App\Models\React::select('reactionEmoji')->where('user_id',Auth::user()->id)->first()->reactionEmoji))
+                                    <input class="reaction-emoji bg-primary btn border-right rounded-0" type="submit" name="emoji" value="{{ $react_post->reactEmoji->emojiImage }} {{ $react_post->reactAmount }}">
                                 @else
-                                    <span class="reaction-emoji btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
+                                    <span class="reaction-emoji btn border-right rounded-0" style="cursor:auto;">{{ $react_post->reactEmoji->emojiImage }} {{ $react_post->reactAmount }}</span>
                                 @endif
                             @endforeach
                         </form>
@@ -140,13 +143,32 @@
                                 </div>
                                 <div class="reaction-container">
                                     <div class="d-flex border-top">
-                                        <span class="emoji-box btn border-right rounded-0">
-                                            <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="reaction-comment-emoji btn border-right rounded-0">❤️ 10</span>
-                                        <span class="reaction-comment-emoji btn border-right rounded-0">👏 22</span>
-                                        <span class="reaction-comment-emoji btn border-right rounded-0">👍 22</span>
-                                    </div> 
+                                    <span class="emoji-box btn border-right rounded-0">
+                                        <div class="emoji-picker" style="margin-bottom:-45px;">
+                                            <form action="{{ route('answers.likeComment',$comment->id) }}" method="POST">
+                                                @csrf
+                                                <div class="d-flex justify-content-around align-items-center">
+                                                    <input type="submit" class="bg-transparent border-0" name="emoji" value="👍">
+                                                    <input type="submit" class="bg-transparent border-0" name="emoji" value="👎">
+                                                    <input type="submit" class="bg-transparent border-0" name="emoji" value="❤️">
+                                                    <input type="submit" class="bg-transparent border-0" name="emoji" value="👏">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
+                                    </span>
+                                        <form class="d-flex" action="{{ route('answers.likeComment',$comment->id) }}" method="POST">
+                                            @csrf  
+                                            @foreach(App\Models\React_Comment::getAmountReact($comment->id) as $react)
+                                                @if(App\Models\React_Comment::existReact($react->reactEmoji->id,$react->comment_id))
+                                                    <input class="reaction-comment-emoji bg-primary btn border-right rounded-0" type="submit" name="emoji" value="{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}">
+                                                @else
+                                                    <span class="btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
+                                                @endif
+                                            @endforeach
+                                            
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
