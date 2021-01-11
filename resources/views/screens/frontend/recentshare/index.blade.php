@@ -19,24 +19,28 @@
                     <li class="list-group-item category {{ request()->is('recentshare/biology-engineer') ? 'bg-primary text-white' : '' }} "><a class="text-decoration-none {{ request()->is('recentshare/biology-engineer') ? 'text-white' : 'text-secondary' }}" href="{{ route('recentshare') }}/biology-engineer">Biology Engineering</a></li>
                 </ul>
             </div>
-            <input class="border w-100 p-2 my-3" style="outline:none;" type="text" placeholder="Search for a major"/>
-            <div class="btn border btn-primary mb-3 rounded-0">
-                <a class="text-white text-decoration-none" href="#">Search</a>
-            </div>
         </div>
         <div class="col-xl-6 col-lg-6">
             <div class="d-flex flex-column profile-container">
                 <div class="profile-form p-3 d-flex border w-100">
                     <div class="profile d-flex">
-                        <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                        @if(Auth::user()->profilePath !== null)
+                            <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" alt=""/>
+                        @else
+                            <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                        @endif
                         <div class="profile-info d-flex flex-column">
                             <span>
                                 <span class="name text-black text-bold">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
-                                <span class="date text-secondary"> - 01 Dec 2020</span>
+                                <!-- <span class="date text-secondary"> - {{Auth::user()->created_at->diffForHumans() }}</span> -->
                             </span>
                             <span>
-                                <span class="major text-secondary">Ba, {{ Auth::user()->major }} at </span>
-                                <a class="school text-primary" href="#">NIPTICT</a>
+                                <span class="major text-secondary">{{ Auth::user()->major }} at </span>
+                                @if(Auth::user()->school != null)
+                                    <a class="school text-primary" href="#">{{ Auth::user()->school }}</a>
+                                @else
+                                    <a class="school text-primary" href="#">UNKNOWN</a>
+                                @endif
                             </span>
                         </div>
                     </div>
@@ -71,20 +75,27 @@
                 <div class="share-post-container border mt-3">
                     <div class="profile-container p-3">
                         <div class="profile d-flex">
-                            <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                            @if($post->user->profilePath !== null)
+                                <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $post->user->profilePath }}" alt=""/>
+                            @else
+                                <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                            @endif
                             <div class="profile-info d-flex flex-column">
                                 <span>
                                     <span class="name text-black text-bold">{{ $post->user->first_name }} {{ $post->user->last_name }}</span>
                                     <span class="date text-secondary"> - {{ $post->posted_at->diffForHumans() }}</span>
                                 </span>
                                 <span>
-                                    <span class="major text-secondary">Ba, {{ $post->user->major }} at </span>
-                                    <a class="school text-primary" href="#">NIPTICT</a>
+                                    <span class="major text-secondary">{{ $post->user->major }} at </span>
+                                    @if($post->user->school != null)
+                                        <a class="school text-primary" href="#">{{ $post->user->school }}</a>
+                                    @else
+                                        <a class="school text-primary" href="#">UNKNOWN</a>
+                                    @endif
                                 </span>
                             </div>
                         </div>
                         <div class="question-container mt-2">
-                            <span class="text-primary">Answer a question: </span>
                             <span class="question">{{ $post->message }}</span>
                         </div>
                     </div>
@@ -96,7 +107,7 @@
                                         @foreach(App\Models\React::getAmountReact($post->id) as $react)
                                             <span class="btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
                                         @endforeach
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                             <div class="cmt-btn d-flex justify-content-end col-xl-6 col-lg-7 col-md-8 col-7">
@@ -114,15 +125,19 @@
         </div>
         <div class="col-xl-3 col-lg-3 profile-card">
             <div class="card">
-                <img class="card-img-top" src="/assets/recentshare/profile-card.png" alt="Card image cap"/>
-                <div class="card-header">20k reputations</div>
+                @if(Auth::user()->profilePath !== null)
+                    <img class="card-img-top" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" alt=""/>
+                @else
+                    <img class="card-img-top" src="/assets/recentshare/profile-card.png" alt="Card image cap"/>
+                @endif
+                <div class="card-header">{{ Auth::user()->reputation }} reputations</div>
                 <div class="card-body">
-                    <h5 class="card-title">Sok San</h5>
+                    <h5 class="card-title">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Computer Science</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a class="btn btn-primary rounded-0">Edit your profile</a>
+                    <p class="card-text">{{ Auth::user()->description }}</p>
+                    <a class="btn btn-primary rounded-0 open_modal">Edit your profile</a>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
