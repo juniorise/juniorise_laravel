@@ -6,6 +6,7 @@ use App\Http\Controllers\RecentShare;
 use App\Http\Controllers\Question;
 use App\Http\Controllers\Answer;
 use App\Http\Controllers\Errors;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 
 //Home
@@ -71,5 +72,7 @@ Route::prefix('admin')->group(function () {
 });
 
 Auth::routes();
+
+Route::resource('users','UserController');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
