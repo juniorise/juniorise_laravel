@@ -7,6 +7,8 @@
                 <h1 class="font-weight-bold">Don’t make your seniors <span class="text-primary">mistake</span> your mistake!
                 </h1>
                 <h5>Join us now for our future bright</h5>
+                @guest
+                @if (Route::has('login'))
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
@@ -29,6 +31,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary rounded-0">Log in</button>
                 </form>
+                @endif
+                @endguest
             </div>
             <div class="right-side d-flex justify-content-center w-50">
                 <img class="w-75" src="{{ asset('assets/home/graduate.svg') }}" alt="">
@@ -81,6 +85,8 @@
         </div>
     </div>
     <div style="height: 10vh"></div>
+    @guest
+    @if (Route::has('register'))
     <div class="bg-light" id="section-4">
         <div class="container">
             <div class="section-4">
@@ -137,7 +143,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <small id="emailHelp" class="form-text text-muted">🛈 We'll never share your email with anyone else.</small>
+                                <small id="emailHelp" class="form-text text-muted">ℹ We'll never share your email with anyone else.</small>
                             </div>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
@@ -172,4 +178,6 @@
             </div>
         </div>
     </div>
+    @endif
+    @endguest
 @endsection

@@ -1,6 +1,5 @@
 .content-dashboard {
   margin-top: 0px;
-  font-family: "Ubuntu";
   display: -ms-grid;
   display: grid;
   height: auto;
@@ -65,7 +64,6 @@
 }
 
 .content-dashboard .main .user-board .card-1 .user .number {
-  font-family: Ubuntu;
   font-size: 32px;
   margin-top: 10px;
   margin-left: 20px;
@@ -124,7 +122,6 @@
 }
 
 .content-dashboard .main .user-board .card-2 .user .number {
-  font-family: Ubuntu;
   font-size: 32px;
   margin-top: 10px;
   margin-left: 20px;
@@ -183,7 +180,6 @@
 }
 
 .content-dashboard .main .user-board .card-3 .user .number {
-  font-family: Ubuntu;
   font-size: 32px;
   margin-top: 10px;
   margin-left: 20px;

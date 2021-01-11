@@ -5,13 +5,6 @@
             {{ csrf_field() }}
             {{ method_field('PUT') }}
             <label class="mr-sm-2">Update your profile</label>
-            <?php
-            $imageProfile = "/assets/recentshare/profile.png";
-            if(isset(Auth::user()->imageProfile)){
-                $imageProfile = Auth::user()->imageProfile;
-            }
-            ?>
-            <img class="form-group profile-pic mr-2 rounded-circle" src="{{$imageProfile}}" alt=""/>
             <div class="form-group">
                 <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name"
                        placeholder="Firstname"
@@ -59,10 +52,17 @@
                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                 @enderror
             </div>
+            <?php
+            $imageProfile = "/assets/recentshare/profile.png";
+            if(Auth::user()->imageProfile AND \File::exists(Auth::user()->profilePath)){
+                $imageProfile = Auth::user()->imageProfile;
+            }
+            ?>
             <div class="form-group">
                 <input type="file" class="form-control-file" id="image" name="image" onchange="previewFile(this)"
                        accept="image/*">
-                <img id="previewImg" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" style="max-width:130px;margin-top:20px;">
+
+                <img id="previewImg" src="{{ $imageProfile }}" style="max-width:130px;margin-top:20px;">
             </div>
             <button type="submit" class="btn btn-primary rounded-0">{{ __('Update') }}</button>
             <a onclick="hidemodal();" class="form-group btn btn-light rounded-0">{{ __('Cancel') }}</a>

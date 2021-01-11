@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -82,15 +83,19 @@ class UserController extends Controller
         $user->major = $request->major;
         $user->school = $request->school;
         $user->description = $request->description;
+
+        $file = public_path('assets/images').'/'.$user->profilePath;
+
+        $fileExist = $user->profilePath AND file_exists($file);
         if($request->hasFile('image')){
-            if($user->profilePath){
-                unlink(public_path('assets/images').'/'.$user->profilePath);
+            if(\File::exists($file)){
+                \File::delete($file);
             }
             $image =  $request->file('image');
             $imageName = time().'.'.$image->extension();
+            $user->profilePath = $imageName;
             $image->move(public_path('assets/images'),$imageName);
-        }else $imageName = null;
-        $user->profilePath = $imageName;
+        }
         $user->save();
         return redirect()->route('recentshare')
                         ->with('success','User updated successfully');
