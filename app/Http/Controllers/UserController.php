@@ -70,15 +70,29 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request,$id)
     {
+        $user = User::find($id);
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
         ]);
-  
-        $product->update($request->all());
-        return redirect()->route('users.index')
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->major = $request->major;
+        $user->school = $request->school;
+        $user->description = $request->description;
+        if($request->hasFile('image')){
+            if($user->profilePath){
+                unlink(public_path('assets/images').'/'.$user->profilePath);
+            }
+            $image =  $request->file('image');
+            $imageName = time().'.'.$image->extension();
+            $image->move(public_path('assets/images'),$imageName);
+        }else $imageName = null;
+        $user->profilePath = $imageName;
+        $user->save();
+        return redirect()->route('recentshare')
                         ->with('success','User updated successfully');
     }
 

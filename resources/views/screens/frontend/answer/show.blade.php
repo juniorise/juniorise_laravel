@@ -58,10 +58,6 @@
                     
                 </ul>
             </div>
-            <input class="border w-100 p-2 my-3" style="outline:none;" type="text" placeholder="Search for a major"/>
-            <div class="btn border btn-primary mb-3 rounded-0">
-                <a class="text-white text-decoration-none" href="#">Search</a>
-            </div>
         </div>
         <div class="col-xl-6 col-lg-6 mb-3">
             <!-- <div class="container border d-flex align-items-center py-3 mb-2">
@@ -70,15 +66,23 @@
             <div class="question-content-container border mb-3">
                 <div class="profile-container d-flex w-100 p-3 mb-3">
                     <div class="profile d-flex">
-                        <img src="{{ asset('assets/recentshare/profile.png') }}" alt="" class="profile-pic mr-2 rounded-circle">
+                        @if($post->user->profilePath !== null)
+                            <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $post->user->profilePath }}" alt=""/>
+                        @else
+                            <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                        @endif
                         <div class="profile-info d-flex flex-column">
                             <span>
                                 <span class="name text-black text-bold">{{ $post->user->first_name }} {{ $post->user->last_name }}</span>
                                 <span class="date text-secondary">{{ $post->posted_at->diffForHumans() }}</span>
                             </span>
                             <span>
-                                <span class="major text-secondary">Ba, Computer Science at</span>
-                                <a class="school text-primary" href="#">NIPTICT</a>
+                                <span class="major text-secondary">Computer Science at</span>
+                                @if($post->user->school != null)
+                                    <a class="school text-primary" href="#">{{ $post->user->school }}</a>
+                                @else
+                                    <a class="school text-primary" href="#">UNKNOWN</a>
+                                @endif
                             </span>
                         </div>
                     </div>
@@ -120,15 +124,22 @@
             <div class="d-flex flex-column profile-container">
                 <div class="profile-form p-3 d-flex border w-100">
                     <div class="profile d-flex">
-                        <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                        @if(Auth::user()->profilePath !== null)
+                            <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" alt=""/>
+                        @else
+                            <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                        @endif
                         <div class="profile-info d-flex flex-column">
                             <span>
                                 <span class="name text-black text-bold">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
-                                <span class="date text-secondary"> - 01 Dec 2020</span>
                             </span>
                             <span>
-                                <span class="major text-secondary">Ba, {{ Auth::user()->major }} at </span>
-                                <a class="school text-primary" href="#">NIPTICT</a>
+                                <span class="major text-secondary">{{ Auth::user()->major }} at </span>
+                                @if(Auth::user()->school != null)
+                                    <a class="school text-primary" href="#">{{ Auth::user()->school }}</a>
+                                @else
+                                    <a class="school text-primary" href="#">UNKNOWN</a>
+                                @endif
                             </span>
                         </div>
                     </div>
@@ -163,15 +174,23 @@
                             <div class="comment-content border">
                                 <div class="answer-content p-2">
                                     <div class="profile d-flex">
-                                        <img class="profile-pic mr-1 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                                    @if($comment->user->profilePath !== null)
+                                        <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $comment->user->profilePath }}" alt=""/>
+                                    @else
+                                        <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
+                                    @endif
                                         <div class="profile-info d-flex flex-column">
                                             <span>
                                                 <span class="name text-black text-bold">{{ $comment->user->first_name }} {{ $comment->user->last_name }}</span>
                                                 <span class="date text-secondary">{{ $comment->commented_at->diffForHumans() }}</span>
                                             </span>
                                             <span>
-                                                <span class="major text-secondary">Ba, {{ $comment->user->major }} at </span>
-                                                <a class="school text-primary" href="#">NIPTICT</a>
+                                                <span class="major text-secondary">{{ $comment->user->major }} at </span>
+                                                @if($comment->user->school != null)
+                                                    <a class="school text-primary" href="#">{{ $comment->user->school }}</a>
+                                                @else
+                                                    <a class="school text-primary" href="#">UNKNOWN</a>
+                                                @endif
                                             </span>
                                         </div>
                                     </div>

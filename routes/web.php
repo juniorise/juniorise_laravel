@@ -20,6 +20,7 @@ Route::get('/errors', [Errors::class,'index'])->name('errors');
 Route::prefix('/')->group(function () {
     Route::get('recentshare', [RecentShare::class,'index'])->name('recentshare')->middleware('auth');
     Route::post('recentshare',[RecentShare::class,'store']);
+    Route::put('recentshare/{id}',[UserController::class,'update'])->name('profile.update');
     Route::get('recentshare/{category}',[RecentShare::class,'show'])->middleware('category_type','auth');
     Route::get('answers/{id}', [Answer::class,'show'])->name('answers')->middleware('auth');
     Route::post('answers/comment/{id}', [Answer::class,'store'])->name('answers.comment')->middleware('auth');
@@ -32,7 +33,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('screens/admin/dashboard');
     });
-    
+
     Route::get('/manage-post', function () {
         return view('screens/admin/managepost');
     });

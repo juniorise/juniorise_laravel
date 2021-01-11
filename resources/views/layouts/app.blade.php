@@ -59,12 +59,23 @@
     .navbar{
         padding: 0 !important;
     }
-
+    .modal-backdrop {
+        /* bug fix - no overlay */
+        display: none !important;
+    }
+    .modal-backdrop {
+        z-index: 1040 !important;
+    }
+    .modal-content {
+        margin: 2px auto;
+        z-index: 1100 !important;
+    }
 </style>
 
 <body>
     <div id="app">
         @include('layouts.header')
+        @include('layouts.edit')
         <main class="py-4">
             @yield('content')
         </main>
@@ -89,7 +100,34 @@
             });
         }
 
-        
+        $(document).on('click','.open_modal',function(){
+            // var url = "domain.com/yoururl";
+            // var id= $(this).val();
+            // $.get(url + '/' + id, function (data) {
+                //success data
+                // $('#tour_id').val(data.id);
+                // $('#name').val(data.name);
+                // $('#details').val(data.details);
+                // $('#btn-save').val("update");
+                $('#edit-modal').modal('show');
+                $("#edit-modal").appendTo("body");
+            // })
+        });
+
+        function hidemodal(){
+            $('#edit-modal').modal('hide');
+        }
+
+        function previewFile(input){
+            var file = $("input[type=file]").get(0).files[0];
+            if(file){
+                var reader = new FileReader();
+                reader.onload = function(){
+                    $('#previewImg').attr("src",reader.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
 </body>
 
