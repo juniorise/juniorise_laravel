@@ -1,5 +1,4 @@
 .content-query-select {
-  font-family: "Ubuntu";
   display: -ms-grid;
   display: grid;
   height: auto;
@@ -45,13 +44,12 @@
 
 .content-query-select .main .query form input::-webkit-input-placeholder {
   font-size: 16px;
-  font-family: "Ubuntu";
+  font-family: 'Quicksand', sans-serif;
 }
 
 .content-query-select .main .query form input[type="text"] {
   font-size: 16px;
-  font-family: "Ubuntu";
-  padding-left: 20px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .content-query-select .main .query form button {

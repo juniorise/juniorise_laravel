@@ -1,5 +1,4 @@
 .content-query-select {
-    font-family: "Ubuntu";
     display: grid;
     height: auto;
     grid-template-columns: 20% 20% 20% 20% 20%;
@@ -24,12 +23,11 @@
                 }
                 input::-webkit-input-placeholder {
                     font-size: 16px;
-                    font-family: "Ubuntu";
+                    font-family: 'Quicksand', sans-serif;
                 }
                 input[type="text"] {
                     font-size: 16px;
-                    font-family: "Ubuntu";
-                    padding-left: 20px;
+                    font-family: 'Quicksand', sans-serif;
                 }
                 button {
                     display: flex;
