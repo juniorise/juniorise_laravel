@@ -36,7 +36,10 @@
                         </div>
                     @endif
                 @else
-                    <div class="c btn border border-white align-self-center rounded-0 ml-4">
+                    <div class="c btn bg-primary align-self-center rounded-0 ml-4">
+                        <a class="text-white" href="#" onclick="goBack()">Back</a>
+                    </div>
+                    <div class="c btn border border-white align-self-center rounded-0 ml-2">
                         <a class="text-white" href="#" id="logoutBtn" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}</a>

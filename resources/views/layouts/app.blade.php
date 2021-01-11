@@ -129,6 +129,9 @@
                 reader.readAsDataURL(file);
             }
         }
+        function goBack() {
+            window.history.back();
+        }
     </script>
 </body>
 
