@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use DB;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Models\ReactEmoji;
 use App\Models\React;
 use App\Models\React_Comment;
+use App\Models\User;
 
 class Answer extends Controller
 {
@@ -37,7 +39,7 @@ class Answer extends Controller
         $post = Post::findOrFail($id);
         $whereArray = array('user_id' => Auth::user()->id,'post_id' => $id);
         $existUser = React::whereArray($whereArray)->exists();
-        $emoji = ReactEmoji::where('emojiImage','LIKE','%'.$request->emoji.'%')->first();
+        $emoji = ReactEmoji::where('emojiImage','LIKE','%'.Str::substr($request->emoji,0,1).'%')->first();
         if(!$existUser){
             React::create([
                 'user_id' =>  Auth::user()->id,
@@ -45,9 +47,35 @@ class Answer extends Controller
                 'reactionEmoji' => $emoji->id,
                 'reactAmount' => 1
             ]);
+            $user = User::find($post->posted_by);
+            if($post->posted_by !== Auth::user()->id){
+                
+                if($emoji->id == 1){
+                    $user->increment('reputation',1);
+                }else if($emoji->id == 2){
+                    $user->decrement('reputation',1);
+                    if($user->reputation  < 0){
+                        $user->update(['reputation' => 0]);
+                    }
+                }else if($emoji->id == 3){
+                    $user->increment('reputation',2);
+                }else if($emoji->id == 4){
+                    $user->increment('reputation',1);
+                }
+            }
         }else{
             $whereArray = array('user_id' => Auth::user()->id,'post_id' => $id);
             React::whereArray($whereArray)->delete();
+            $user = User::where('id',$post->posted_by);
+            if($emoji->id == 1){
+                $user->decrement('reputation',1);
+            }else if($emoji->id == 2){
+                $user->increment('reputation',1);
+            }else if($emoji->id == 3){
+                $user->decrement('reputation',2);
+            }else if($emoji->id == 4){
+                $user->decrement('reputation',1);
+            }
         }
         return redirect()->route('answers',$id);
     }
@@ -57,7 +85,7 @@ class Answer extends Controller
         $comment = Comment::findOrFail($id);
         $whereArray = array('user_id' => Auth::user()->id,'comment_id' => $id);
         $existUser = React_Comment::whereArray($whereArray)->exists();
-        $emoji = ReactEmoji::where('emojiImage','LIKE','%'.$request->emoji.'%')->first();
+        $emoji = ReactEmoji::where('emojiImage','LIKE','%'.Str::substr($request->emoji,0,1).'%')->first();
         if(!$existUser){
             React_Comment::create([
                 'user_id' =>  Auth::user()->id,
@@ -65,9 +93,34 @@ class Answer extends Controller
                 'reactionEmoji' => $emoji->id,
                 'reactAmount' => 1
             ]);
+            $user = User::find($comment->commented_by);
+            if($comment->commented_by !== Auth::user()->id){
+                if($emoji->id == 1){
+                    $user->increment('reputation',1);
+                }else if($emoji->id == 2){
+                    $user->decrement('reputation',1);
+                    if($user->reputation  < 0){
+                        $user->update(['reputation' => 0]);
+                    }
+                }else if($emoji->id == 3){
+                    $user->increment('reputation',2);
+                }else if($emoji->id == 4){
+                    $user->increment('reputation',1);
+                }
+            }
         }else{
             $whereArray = array('user_id' => Auth::user()->id,'comment_id' => $id);
             React_Comment::whereArray($whereArray)->delete();
+            $user = User::where('id',$comment->commented_by);
+            if($emoji->id == 1){
+                $user->decrement('reputation',1);
+            }else if($emoji->id == 2){
+                $user->increment('reputation',1);
+            }else if($emoji->id == 3){
+                $user->decrement('reputation',2);
+            }else if($emoji->id == 4){
+                $user->decrement('reputation',1);
+            }
         }
         return redirect()->route('answers',$comment->post_id);
     }
