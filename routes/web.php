@@ -8,6 +8,8 @@ use App\Http\Controllers\Answer;
 use App\Http\Controllers\Errors;
 use App\Http\Controllers\UserController;
 use App\Models\User;
+use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Manage_post;
 
 //Home
 Route::get('/', function () {
@@ -30,13 +32,15 @@ Route::prefix('/')->group(function () {
 
 //Backend
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('screens/admin/dashboard');
-    });
+    Route::get('/dashboard',[Dashboard::class, 'getData']);
+    Route::get('/dashboard/{id}', [Dashboard::class, 'deleteData'])->name('deleteDashboard.post');
 
-    Route::get('/manage-post', function () {
-        return view('screens/admin/managepost');
-    });
+    Route::get('/manage-post',[Manage_post::class, 'getData']);
+    Route::get('/manage-post/{id}', [Manage_post::class, 'deleteData'])->name('delete.post');
+
+    // Route::get('/manage-post', function () {
+    //     return view('screens/admin/managepost');
+    // });
 
     Route::get('/user-account/{uid}', function () {
         $users = User::all();

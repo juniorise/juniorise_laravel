@@ -49,7 +49,7 @@ class Answer extends Controller
             ]);
             $user = User::find($post->posted_by);
             if($post->posted_by !== Auth::user()->id){
-                
+
                 if($emoji->id == 1){
                     $user->increment('reputation',1);
                 }else if($emoji->id == 2){

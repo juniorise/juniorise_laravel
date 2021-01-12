@@ -145,8 +145,8 @@
 
         .user-activities {
             display: grid;
-            grid-template-rows: 1fr 1fr;
-            // grid-template-rows: auto auto;
+            // grid-template-rows: 1fr 1fr;
+            grid-template-rows: auto auto;
             grid-template-areas: "post" "account";
             grid-area: user;
             height: auto;
