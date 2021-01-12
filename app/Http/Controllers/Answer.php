@@ -49,7 +49,7 @@ class Answer extends Controller
             ]);
             $user = User::find($post->posted_by);
             if($post->posted_by !== Auth::user()->id){
-                
+
                 if($emoji->id == 1){
                     $user->increment('reputation',1);
                 }else if($emoji->id == 2){
@@ -67,14 +67,16 @@ class Answer extends Controller
             $whereArray = array('user_id' => Auth::user()->id,'post_id' => $id);
             React::whereArray($whereArray)->delete();
             $user = User::where('id',$post->posted_by);
-            if($emoji->id == 1){
-                $user->decrement('reputation',1);
-            }else if($emoji->id == 2){
-                $user->increment('reputation',1);
-            }else if($emoji->id == 3){
-                $user->decrement('reputation',2);
-            }else if($emoji->id == 4){
-                $user->decrement('reputation',1);
+            if($post->posted_by !== Auth::user()->id){
+                if($emoji->id == 1){
+                    $user->decrement('reputation',1);
+                }else if($emoji->id == 2){
+                    $user->increment('reputation',1);
+                }else if($emoji->id == 3){
+                    $user->decrement('reputation',2);
+                }else if($emoji->id == 4){
+                    $user->decrement('reputation',1);
+                }
             }
         }
         return redirect()->route('answers',$id);
@@ -112,14 +114,16 @@ class Answer extends Controller
             $whereArray = array('user_id' => Auth::user()->id,'comment_id' => $id);
             React_Comment::whereArray($whereArray)->delete();
             $user = User::where('id',$comment->commented_by);
-            if($emoji->id == 1){
-                $user->decrement('reputation',1);
-            }else if($emoji->id == 2){
-                $user->increment('reputation',1);
-            }else if($emoji->id == 3){
-                $user->decrement('reputation',2);
-            }else if($emoji->id == 4){
-                $user->decrement('reputation',1);
+            if($comment->commented_by !== Auth::user()->id){
+                if($emoji->id == 1){
+                    $user->decrement('reputation',1);
+                }else if($emoji->id == 2){
+                    $user->increment('reputation',1);
+                }else if($emoji->id == 3){
+                    $user->decrement('reputation',2);
+                }else if($emoji->id == 4){
+                    $user->decrement('reputation',1);
+                }
             }
         }
         return redirect()->route('answers',$comment->post_id);

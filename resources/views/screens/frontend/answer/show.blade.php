@@ -55,7 +55,7 @@
                         <li class="list-group-item category">Doctor</li>
                         <li class="list-group-item category bg-primary text-white">Biology Engineering</li>
                     @endif
-                    
+
                 </ul>
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="question-content-container border mb-3">
                 <div class="profile-container d-flex w-100 p-3 mb-3">
                     <div class="profile d-flex">
-                        @if($post->user->profilePath !== null AND \File::exists($post->user->profilePath))
+                        @if($post->user->profilePath !== null AND File::exists($post->user->profilePath))
                             <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $post->user->profilePath }}" alt=""/>
                         @else
                             <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
@@ -77,7 +77,7 @@
                                 <span class="date text-secondary">{{ $post->posted_at->diffForHumans() }}</span>
                             </span>
                             <span>
-                                <span class="major text-secondary">Computer Science at</span>
+                                <span class="major text-secondary">{{$post->user->reputation}} reps - {{ $post->user->major }} at</span>
                                 @if($post->user->school != null)
                                     <a class="school text-primary" href="#">{{ $post->user->school }}</a>
                                 @else
@@ -109,7 +109,7 @@
                             <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
                         </span>
                         <form class="d-flex" action="{{ route('answers.likePost',$post->id) }}" method="POST">
-                            @csrf  
+                            @csrf
                             @foreach($reacts_Post as $react_post)
                                 @if( App\Models\React::where('user_id',Auth::user()->id)->exists() && App\Models\React::existReact($react_post->reactEmoji->id,$post->id))
                                     <input class="reaction-emoji bg-white btn border-right rounded-0" type="submit" name="emoji" value="{{ $react_post->reactEmoji->emojiImage }} {{ $react_post->reactAmount }}">
@@ -124,7 +124,7 @@
             <div class="d-flex flex-column profile-container">
                 <div class="profile-form p-3 d-flex border w-100">
                     <div class="profile d-flex">
-                        @if(Auth::user()->profilePath !== null AND \File::exists(Auth::user()->profilePath))
+                        @if(Auth::user()->profilePath !== null AND File::exists(Auth::user()->profilePath))
                             <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" alt=""/>
                         @else
                             <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
@@ -134,7 +134,7 @@
                                 <span class="name text-black text-bold">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
                             </span>
                             <span>
-                                <span class="major text-secondary">{{ Auth::user()->major }} at </span>
+                                <span class="major text-secondary">{{Auth::user()->reputation }} reps - {{ Auth::user()->major }} at </span>
                                 @if(Auth::user()->school != null)
                                     <a class="school text-primary" href="#">{{ Auth::user()->school }}</a>
                                 @else
@@ -174,7 +174,7 @@
                             <div class="comment-content border">
                                 <div class="answer-content p-2">
                                     <div class="profile d-flex">
-                                    @if($comment->user->profilePath !== null AND \File::exists($comment->user->profilePath))
+                                    @if($comment->user->profilePath !== null AND File::exists($comment->user->profilePath))
                                         <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $comment->user->profilePath }}" alt=""/>
                                     @else
                                         <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
@@ -185,7 +185,7 @@
                                                 <span class="date text-secondary">{{ $comment->commented_at->diffForHumans() }}</span>
                                             </span>
                                             <span>
-                                                <span class="major text-secondary">{{ $comment->user->major }} at </span>
+                                                <span class="major text-secondary">{{ $comment->user->reputation }} reps - {{ $comment->user->major }} at </span>
                                                 @if($comment->user->school != null)
                                                     <a class="school text-primary" href="#">{{ $comment->user->school }}</a>
                                                 @else
@@ -195,7 +195,7 @@
                                         </div>
                                     </div>
                                     <div class="answer-text mt-3">
-                                        <p class="mb-2">{{ $comment->message }}</p>                            
+                                        <p class="mb-2">{{ $comment->message }}</p>
                                     </div>
                                 </div>
                                 <div class="reaction-container">
@@ -215,7 +215,7 @@
                                         <i class="fas fa-smile text-secondary" aria-hidden="true"></i>
                                     </span>
                                         <form class="d-flex" action="{{ route('answers.likeComment',$comment->id) }}" method="POST">
-                                            @csrf  
+                                            @csrf
                                             @foreach(App\Models\React_Comment::getAmountReact($comment->id) as $react)
                                                 @if(App\Models\React_Comment::existReact($react->reactEmoji->id,$react->comment_id))
                                                     <input class="reaction-comment-emoji bg-white btn border-right rounded-0" type="submit" name="emoji" value="{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}">
@@ -223,7 +223,6 @@
                                                     <span class="btn border-right rounded-0" style="cursor:auto;">{{ $react->reactEmoji->emojiImage }} {{ $react->reactAmount }}</span>
                                                 @endif
                                             @endforeach
-                                            
                                         </form>
                                     </div>
                                 </div>
@@ -233,6 +232,6 @@
                 @endif
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection

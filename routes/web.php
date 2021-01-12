@@ -8,6 +8,8 @@ use App\Http\Controllers\Answer;
 use App\Http\Controllers\Errors;
 use App\Http\Controllers\UserController;
 use App\Models\User;
+use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Manage_post;
 
 //Home
 Route::get('/', function () {
@@ -30,13 +32,15 @@ Route::prefix('/')->group(function () {
 
 //Backend
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('screens/admin/dashboard');
-    });
+    Route::get('/dashboard',[Dashboard::class, 'getData'])->middleware('auth');;
+    Route::get('/dashboard/{id}', [Dashboard::class, 'deleteData'])->name('deleteDashboard.post')->middleware('auth');;
 
-    Route::get('/manage-post', function () {
-        return view('screens/admin/managepost');
-    });
+    Route::get('/manage-post',[Manage_post::class, 'getData'])->middleware('auth');;
+    Route::get('/manage-post/{id}', [Manage_post::class, 'deleteData'])->name('delete.post')->middleware('auth');;
+
+    // Route::get('/manage-post', function () {
+    //     return view('screens/admin/managepost');
+    // });
 
     Route::get('/user-account/{uid}', function () {
         $users = User::all();
@@ -45,11 +49,11 @@ Route::prefix('admin')->group(function () {
             return view('screens/admin/usersaccount', ['users' => $users, 'current_user' => $user]);
         } else
             return view('screens/admin/usersaccount', ['users' => $users]);
-    });
+    })->middleware('auth');
 
     Route::get('/user-account', function () {
         return redirect('admin/user-account/1');
-    });
+    })->middleware('auth');
 
     //TODO: search functionality not yet work.
     Route::any('/user-account/search', function () {
@@ -65,11 +69,11 @@ Route::prefix('admin')->group(function () {
         ->orWhere('id', 'like', '%'.$keyword.'%')
         ->get();
         return view('screens/admin/usersaccount', ['users' => $users]);
-    });
+    })->middleware('auth');
 
     Route::get('/query-select', function () {
         return view('screens/admin/queryselect');
-    });
+    })->middleware('auth');
 });
 
 Auth::routes();

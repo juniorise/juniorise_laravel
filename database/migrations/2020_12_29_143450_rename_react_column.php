@@ -14,9 +14,9 @@ class RenameReactColumn extends Migration
     public function up()
     {
         Schema::table('react', function(Blueprint $table) {
-            $table->dropForeign('react_posted_by_foreign'); 
-            $table->renameColumn('posted_by', 'post_id'); 
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade'); 
+            $table->dropForeign('react_posted_by_foreign');
+            $table->renameColumn('posted_by', 'post_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
     }
 

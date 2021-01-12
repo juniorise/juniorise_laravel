@@ -88,8 +88,8 @@ class UserController extends Controller
 
         $fileExist = $user->profilePath AND file_exists($file);
         if($request->hasFile('image')){
-            if(\File::exists($file)){
-                \File::delete($file);
+            if(File::exists($file)){
+                File::delete($file);
             }
             $image =  $request->file('image');
             $imageName = time().'.'.$image->extension();

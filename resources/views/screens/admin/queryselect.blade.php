@@ -8,7 +8,6 @@
                 <li class="list-item"><a class="link" href="dashboard">Dashboard</a></li>
                 <li class="list-item"><a class="link" href="manage-post">Manage Post</a></li>
                 <li class="list-item"><a class="link" href="user-account">User Account</a></li>
-                <li class="list-item link-active"><a class="link" href="query-select">Query Select</a></li>
             </ul> <!--! list-->
         </div> <!--! bar-->
         <div class="version">

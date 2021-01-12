@@ -54,7 +54,7 @@
             </div>
             <?php
             $imageProfile = "/assets/recentshare/profile.png";
-            if(Auth::user()->imageProfile AND \File::exists(Auth::user()->profilePath)){
+            if(Auth::user()->imageProfile AND File::exists(Auth::user()->profilePath)){
                 $imageProfile = Auth::user()->imageProfile;
             }
             ?>

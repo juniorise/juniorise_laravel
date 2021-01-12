@@ -24,7 +24,7 @@
             <div class="d-flex flex-column profile-container">
                 <div class="profile-form p-3 d-flex border w-100">
                     <div class="profile d-flex">
-                        @if(Auth::user()->profilePath !== null AND \File::exists(Auth::user()->profilePath))
+                        @if(Auth::user()->profilePath !== null AND File::exists(Auth::user()->profilePath))
                             <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" alt=""/>
                         @else
                             <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
@@ -75,7 +75,7 @@
                 <div class="share-post-container border mt-3">
                     <div class="profile-container p-3">
                         <div class="profile d-flex">
-                            @if($post->user->profilePath !== null AND \File::exists($post->user->profilePath))
+                            @if($post->user->profilePath !== null AND File::exists($post->user->profilePath))
                                 <img class="profile-pic mr-2 rounded-circle" src="{{ asset('assets/images') }}/{{ $post->user->profilePath }}" alt=""/>
                             @else
                                 <img class="profile-pic mr-2 rounded-circle" src="/assets/recentshare/profile.png" alt=""/>
@@ -125,7 +125,7 @@
         </div>
         <div class="col-xl-3 col-lg-3 profile-card">
             <div class="card">
-                @if(Auth::user()->profilePath !== null AND \File::exists(Auth::user()->profilePath))
+                @if(Auth::user()->profilePath !== null AND File::exists(Auth::user()->profilePath))
                     <img class="card-img-top" src="{{ asset('assets/images') }}/{{ Auth::user()->profilePath }}" alt=""/>
                 @else
                     <img class="card-img-top" src="/assets/recentshare/profile-card.png" alt="Card image cap"/>

@@ -93,7 +93,7 @@
                         @endif
                     @else
                         <div class="c btn border border-primary align-self-center rounded-0 ml-4">
-                            <a class="text-primary" href="#" href="/recentshare">Go to app</a>
+                            <a class="text-primary"  href="{{ route('recentshare') }}">Go to app</a>
                         </div>
                         <div class="c btn border border-danger align-self-center rounded-0 ml-2">
                             <a class="text-danger" href="#" id="logoutBtn"  href="{{ route('logout') }}" onclick="event.preventDefault();
