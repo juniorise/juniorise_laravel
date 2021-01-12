@@ -19,7 +19,7 @@ class Dashboard extends Controller
         // $reacts = React::select('post_id','reactionEmoji',DB::raw("COUNT(reactAmount) as reactAmount"))->groupBy('post_id','reactionEmoji')->get();
         $messages = Post::latest()->withCount('reacts')->get();
          $count_user = User::select('id',DB::raw("COUNT(id) as userAmount"))->get();
-         $count_post = User::select('id',DB::raw("COUNT(id) as postAmount"))->get();
+         $count_post = Post::select('id',DB::raw("COUNT(id) as postAmount"))->get();
         //  return $count;
         return view('screens/admin/dashboard')->with('users',$user)->with('messages',$messages)->with('count_user',$count_user[0])->with('count_post',$count_post[0]);
     }
